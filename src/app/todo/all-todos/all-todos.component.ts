@@ -1,13 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { Todo } from 'src/app/models';
+import { TodoService } from '../todo.service';
 
 @Component({
     template: `
-        <a [routerLink]="['',1]">1</a>
-        <a [routerLink]="['/2']">2</a>
-        <a [routerLink]="['/3']">3</a>
-        <a [routerLink]="['/3']">3</a>
-        <a [routerLink]="['/4']">4</a>
+        <h1> משימות כלליות </h1>
+        <div *ngFor="let todo of allTodos" [routerLink]="['/todos', 'todo.id']"
+        <div [routerLink]="['/todos', '1']">2</div>
+        <div [routerLink]="['/todos', '3']">3</div>
+        <div [routerLink]="['/todos', '4']">4</div>
+        <div [routerLink]="['/todos', '5']">5</div>
+        <div [routerLink]="['/todos', '6']">6</div>
     `,
     // templateUrl:'./all-tasks.component.html',
     styles: [`
@@ -16,14 +20,18 @@ import { Store, select } from '@ngrx/store';
 })
 export class AllTodosComponent implements OnInit{
 
-    constructor(private store:Store<any>){}
+    constructor ( private store:Store<any>, private todoService:TodoService ){}
 
+    allTodos:any[];//Todo
 
     ngOnInit(){
-        // this.store.pipe(select('tasks')).subscribe((taskState)=> {
-        //     if(taskState) this.color = taskState.buttonColor
-        // })  
+        // this.store.pipe(select('todo')).subscribe((todoState)=> {
+        //     if(odoState) this.allTodos = taskState.buttonColor
+        // })
+        this.todoService.getAllTodos().subscribe(todos => this.allTodos = todos);
+
     }
+
 
     changeColor(){
         // this.store.dispatch({

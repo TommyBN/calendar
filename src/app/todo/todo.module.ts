@@ -3,19 +3,23 @@ import { CommonModule } from '@angular/common';
 import { TasksRoutingModule } from './todo-routing.module';
 import { AllTodosComponent } from './all-todos/all-todos.component';
 import { StoreModule } from '@ngrx/store';
-import { taskReducer } from './todo.reducer';
-import { TodoComponent } from './todo.component';
+import { todoReducer } from './todo.reducer';
+import { TodoComponent } from './single/todo.component';
+import { TodoService } from './todo.service';
 
 @NgModule({
   imports: [
     CommonModule, 
     TasksRoutingModule,
-    StoreModule.forFeature('tasks',taskReducer),
+    StoreModule.forFeature('todo',todoReducer),
     
   ],
   declarations: [
     AllTodosComponent,
     TodoComponent
+  ],
+  providers:[
+    TodoService
   ]
 })
 export class TodoModule { }

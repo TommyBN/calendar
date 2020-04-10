@@ -1,0 +1,19 @@
+
+<button>edit</button>
+<button>back</button>
+
+<div class="container"><!--for todo-->
+    <div class="todo-header"><!---->
+        <div id="path">
+            {{title}} <!--FROM WHERE??-->
+        </div>
+        <div id="event-date"><!---->
+            {{todo.start}}
+        </div>
+    </div>
+    <div class="secondary-todos">
+        <div *ngFor="let secTodo of secTodos">{{secTodo.title}}</div>
+        <button>add secondary assignment</button>
+    </div>
+
+</div>

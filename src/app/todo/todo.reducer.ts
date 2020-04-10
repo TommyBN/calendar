@@ -1,4 +1,4 @@
-export function taskReducer(state, action){
+export function todoReducer(state, action){
     switch(action.type){
         case 'TASKS_BUTTON_COLOR':
             console.log('existing state: ' +JSON.stringify(state));

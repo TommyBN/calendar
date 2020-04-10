@@ -1,0 +1,42 @@
+{
+    "todo1": {
+        "id": 1,
+        "location": "משימות כלליות",
+        "title": "clean the room",
+        "description": "clean my room etc...",
+        "event": "23/12/2020",
+        "secondaryTodos": []
+    },
+    "todo3":{
+        "id": 3,
+        "location": "משימות כלליות",
+        "title": "shit on the floor",
+        "description": "with pleasure...",
+        "event": "26/1/2021",
+        "secondaryTodos": []
+    },
+    "todo4":{
+        "id": 4,
+        "location": "משימות כלליות",
+        "title": "run away from everything!",
+        "description": "tent etc....",
+        "event": "23/32/2022",
+        "secondaryTodos": ["1","2","three"]
+    },
+    "todo5":{
+        "id": 5,
+        "location": "משימות כלליות",
+        "title": "clean the door",
+        "description": "clean the door etc...",
+        "event": "23/12/2020",
+        "secondaryTodos": []
+    },
+    "todo6":{
+        "id": 6,
+        "location": "משימות כלליות",
+        "title": "this is too much",
+        "description": "one assignment too much man, come on...",
+        "event": "23/12/2025",
+        "secondaryTodos": []
+    }
+}
