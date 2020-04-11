@@ -4,32 +4,46 @@ import { Todo } from 'src/app/models';
 import { TodoService } from '../todo.service';
 
 @Component({
-    template: `
-        <h1> משימות כלליות </h1>
-        <div *ngFor="let todo of allTodos" [routerLink]="['/todos', 'todo.id']"
-        <div [routerLink]="['/todos', '1']">2</div>
-        <div [routerLink]="['/todos', '3']">3</div>
-        <div [routerLink]="['/todos', '4']">4</div>
-        <div [routerLink]="['/todos', '5']">5</div>
-        <div [routerLink]="['/todos', '6']">6</div>
-    `,
-    // templateUrl:'./all-tasks.component.html',
+    templateUrl: './all-todos.component.html',
     styles: [`
-       
+    .container{
+        padding:5%;
+        text-align: right;
+    }
+    .general-buttons{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .main{
+        padding:5%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    *{ direction:rtl}
     `]
 })
 export class AllTodosComponent implements OnInit{
 
     constructor ( private store:Store<any>, private todoService:TodoService ){}
 
-    allTodos:any[];//Todo
+    allTodos:Array<any>;//Todo
 
     ngOnInit(){
         // this.store.pipe(select('todo')).subscribe((todoState)=> {
         //     if(odoState) this.allTodos = taskState.buttonColor
         // })
-        this.todoService.getAllTodos().subscribe(todos => this.allTodos = todos);
-
+        this.todoService.getAllTodos().subscribe(todos => {
+            this.allTodos = todos;
+            // console.log('all todos: ', todos)
+            console.log('all todos: ', this.allTodos)
+        })
     }
 
 

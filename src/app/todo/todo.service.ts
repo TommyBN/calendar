@@ -13,7 +13,7 @@ export class TodoService{
     constructor ( private http:HttpClient) {}
 
     getAllTodos():Observable<any>{
-        return this.http.get('./assets/todos')
+        return this.http.get('./assets/todos.json')
     }
 
     // getSingleTodo():Observable<any>{

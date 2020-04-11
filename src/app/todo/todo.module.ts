@@ -6,12 +6,14 @@ import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './todo.reducer';
 import { TodoComponent } from './single/todo.component';
 import { TodoService } from './todo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule, 
     TasksRoutingModule,
     StoreModule.forFeature('todo',todoReducer),
+    HttpClientModule
     
   ],
   declarations: [

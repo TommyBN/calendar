@@ -1,5 +1,25 @@
-<div *ngIf="tasks" class="container">
 
-<app-task *ngFor="let task of tasks"></app-task>    
 
+<div class="container">
+    <div class="general-buttons">
+        <a [routerLink]="['/main']">חזרה</a>
+        <button>הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
+    </div>
+    
+    
+    <div class="main"><!--for todo-->
+        <div class="header"><!---->
+            <div id="path">
+                משימות <!--FROM WHERE??-->
+            </div>
+            <div id="event-date"><!---->
+                תאריך יעד?
+            </div>
+        </div>
+        <div class="assignments">
+            <h3>משימות:</h3>
+            <div *ngFor="let todo of allTodos.todos" [routerLink]="['/todos', todo.id]">{{todo.title}}</div>
+        </div>
+    
+    </div>
 </div>

@@ -6,7 +6,7 @@ const routes: Routes = [
     { path: 'main', loadChildren: () => import('./main-menu/main-menu.module').then(m => m.MainMenuModule)},
     { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule), pathMatch: 'prefix' },
     { path: 'goals', loadChildren: () => import('./goals/goals.module').then( m => m.GoalsModule)},
-    { path: 'sports&hobbies', loadChildren: () => import('./sports&hobbies/sports&hobbies.module').then( m => m.SportsAndHobbiesModule)},
+    { path: 'sports&hobbies', loadChildren: () => import('./sports/sports.module').then( m => m.SportsModule), pathMatch: 'prefix'},
     { path: 'personal-area', loadChildren: () => import('./personal-area/personal-area.module').then( m => m.PersonalAreaModule)},
   ];
 
