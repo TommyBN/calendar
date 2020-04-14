@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AllGoalsComponent } from './all-goals.component';
+import { AllGoalsComponent } from './all/all-goals.component';
 
 
 const routes: Routes = [

@@ -12,3 +12,7 @@ export interface Goal extends Todo{
     field: string;
     secondaryGoals: Goal[];
 }
+
+export interface SportOrHobby{
+    
+}

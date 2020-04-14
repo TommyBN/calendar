@@ -12,7 +12,9 @@ import { ScheduleHeaderComponent } from './schedule/schedule-header/schedule-hea
 import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';
-import { appReducer } from './app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './app.reducer';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,12 @@ import { appReducer } from './app.reducer';
     }),
     CommonModule,
     LayoutModule, SplitterModule, PanelBarModule,
-    StoreModule.forRoot({appReducer})
+    StoreModule.forRoot({reducer}),
+    StoreDevtoolsModule.instrument({
+      name: 'my-calendar devtools',
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

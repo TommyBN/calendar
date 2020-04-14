@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Todo } from 'src/app/models';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -34,11 +33,13 @@ export class AllTodosComponent implements OnInit{
     constructor ( private store:Store<any>, private todoService:TodoService ){}
 
     allTodos:Array<any>;//Todo
+    counter:number = 0;
 
     ngOnInit(){
-        // this.store.pipe(select('todo')).subscribe((todoState)=> {
-        //     if(odoState) this.allTodos = taskState.buttonColor
-        // })
+       this.store.subscribe(state=>{
+            if(state.numOfMissions) this.counter = state.numOfMissions;
+        });
+
         this.todoService.getAllTodos().subscribe(todos => {
             this.allTodos = todos;
             // console.log('all todos: ', todos)
@@ -46,17 +47,14 @@ export class AllTodosComponent implements OnInit{
         })
     }
 
-
-    changeColor(){
-        // this.store.dispatch({
-        //     type: "TASKS_BUTTON_COLOR", //action type
-        //     payload: this.color //action payload
-        // });
-
-        // this.store.subscribe(state=>{
-        //     this.booly = !state.general;
-        //     this.color = state.tasks.buttonColor
-        // })
+    addTodo(){
+        this.store.dispatch({
+            type: "add-mission", 
+            payload: ++this.counter
+        });
     }
+
+
+  
 
 }

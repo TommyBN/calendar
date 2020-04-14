@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+.mainDiv{
+    height: 25%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    text-align: right;
+}
+.btn{
+    width: 10%;
+}

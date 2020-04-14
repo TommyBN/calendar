@@ -4,5 +4,5 @@ import { Component } from '@angular/core';
     template: './single-sport.component.html'
 })
 export class SingleSportComponent{
-
+    sport;
 }
