@@ -16,6 +16,7 @@
 
 .mainDiv:hover{
     background-color: rgb(92, 89, 86);
+    cursor: pointer;
     color: azure;
 }
 .btn{

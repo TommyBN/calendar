@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PersonalAreaRoutingModule } from './personal-area-routing.module';
-import { PersonalAreaComponent } from './personal-area.component';
+import { PersonalAreaComponent } from './all/personal-area.component';
 import { StoreModule } from '@ngrx/store';
 import { paReducer } from './pa-reducer';
+import { PersonalAreaDetailsComponent } from './single/personal-area-details.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { paReducer } from './pa-reducer';
     StoreModule.forFeature('personal-area', paReducer)
   ],
   declarations: [
-    PersonalAreaComponent
+    PersonalAreaComponent,
+    PersonalAreaDetailsComponent
   ]
 })
 export class PersonalAreaModule { }

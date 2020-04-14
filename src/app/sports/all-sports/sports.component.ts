@@ -3,7 +3,7 @@ import { SportsService } from '../sports.service';
 
 @Component({
     templateUrl:'./sports.component.html',
-    styleUrls:['./sports.component.css']
+    styleUrls:['../../section.css']
 })
 export class SportsComponent{
     allSports:Array<any>;

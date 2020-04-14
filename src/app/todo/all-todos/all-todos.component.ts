@@ -4,29 +4,7 @@ import { TodoService } from '../todo.service';
 
 @Component({
     templateUrl: './all-todos.component.html',
-    styles: [`
-    .container{
-        padding:5%;
-        text-align: right;
-    }
-    .general-buttons{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .main{
-        padding:5%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    *{ direction:rtl}
-    `]
+    styleUrls: ['../../section.css']
 })
 export class AllTodosComponent implements OnInit{
 

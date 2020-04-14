@@ -4,6 +4,7 @@ import { GoalsRoutingModule } from './goals-routing.module';
 import { AllGoalsComponent } from './all/all-goals.component';
 import { StoreModule } from '@ngrx/store';
 import { goalsReducer } from './goals-reducer';
+import { GoalDetailsComponent } from './single/goal-details.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { goalsReducer } from './goals-reducer';
     StoreModule.forFeature('goals', goalsReducer)
   ],
   declarations: [
-    AllGoalsComponent
+    AllGoalsComponent,
+    GoalDetailsComponent
   ]
 })
 export class GoalsModule { }

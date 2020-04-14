@@ -1,24 +1,27 @@
 
 
  <div class="container">
- <!--   <div class="general-buttons">
-        <a [routerLink]="['/main']">חזרה</a>
-        <button>הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
-    </div> -->
+    <div class="general-buttons">
+        <button [routerLink]="['/main']">ראשי</button>
+        <button [routerLink]="['/todo']">משימות</button>
+        <button [routerLink]="['/sports-and-hobbies']">ספורט ופנאי</button>
+        <button [routerLink]="['/personal-area']">איזור אישי</button>
+    </div>
     
     
     <div class="main">
         <div class="header">
             <div id="path">
-                משימות 
+               מטרות
             </div>
             <div id="event-date">
                 תאריך יעד?
             </div>
         </div>
         <div class="assignments">
-            <h3>משימות:</h3>
+            <h3>מטרות: </h3>
             <div *ngFor="let todo of allTodos.todos" [routerLink]="['/todos', todo.id]">{{todo.title}}</div>
+            <button (click)="addTodo()">הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
         </div>
     
     </div>

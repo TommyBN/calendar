@@ -1,0 +1,37 @@
+/* sections css*/
+
+.container{
+    padding:5%;
+    text-align: right;
+}
+.general-buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+button{
+    border-radius: 3px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.main{
+    padding:5%;
+    display: flex;
+    flex-direction: column;
+}
+
+*{ direction:rtl}
+
+.sports-div, #add{
+    border-radius: 50%;
+    width: fit-content;
+    padding: 5%;
+    border: 1px solid black;
+}
+.sports-div, .assignments, #path{
+    margin: 5%;
+}
+
