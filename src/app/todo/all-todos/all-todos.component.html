@@ -23,11 +23,12 @@
                 תאריך יעד?
             </div>
         </div>
+        <h3>משימות:</h3>
         <div class="assignments">
-            <h3>משימות:</h3>
-            <div *ngFor="let todo of allTodos.todos" [routerLink]="['/todos', todo.id]">{{todo.title}}</div>
-            <button (click)="addTodo()">הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
+            <div class="assignment" *ngFor="let todo of allTodos.todos" [routerLink]="['/todo', todo.id]">{{todo.title}}</div>
         </div>
+        <button (click)="addTodo()">הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
+
     
     </div>
 </div>

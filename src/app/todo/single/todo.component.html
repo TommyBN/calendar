@@ -1,7 +1,8 @@
 
 <div class="container">
     <div class="general-buttons">
-        <a [routerLink]="['/todos']">חזרה</a>
+        <!-- <a [routerLink]="['/todo']">חזרה</a> -->
+        <a (click)="back()">חזרה</a>
         <button>ערוך&nbsp;<i class="fas fa-pencil-alt"></i></button>
     </div>
     
@@ -9,17 +10,17 @@
     <div class="main"><!--for todo-->
         <div class="header"><!---->
             <div id="path">
-                {{todo.title}} <!--FROM WHERE??-->
+                <h4>{{todo.location}} <i class="fas fa-chevron-left"></i> {{todo.title}} </h4> <!--FROM WHERE??-->
             </div>
-            <div id="event-date"><!---->
-                {{todo.event}}
-            </div>
+            <!-- <div id="event-date">
+                <h4>{{todo.event}}</h4>
+            </div> -->
         </div>
+        <h3>{{todo.title}} - משימות משנה:</h3>
         <div class="assignments">
-            <h3>משימות משנה:</h3>
-            <div *ngFor="let secTodo of todo.secondaryTodos">{{secTodo}}</div>
-            <button>add secondary assignment</button>
+            <div class="assignment" *ngFor="let secTodo of todo.secondaryTodos" [routerLink]="['/todo', secTodo.id]">{{secTodo.title}}</div>
         </div>
+        <button>הוסף משימת משנה&nbsp;<i class="fas fa-plus"></i></button>
     
     </div>
 </div>

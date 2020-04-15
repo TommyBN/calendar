@@ -1,48 +1,41 @@
 import { Component } from '@angular/core';
 import { Todo } from '../../models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { TodoService } from '../todo.service';
+import { Location } from '@angular/common';
 
 @Component({
     templateUrl: './todo.component.html',
-    styles:[`
-
-    .container{
-        padding:5%;
-        text-align: right;
-    }
-    .general-buttons{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .main{
-        padding:5%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    *{ direction:rtl}
-    `]
+    styleUrls:['../../section.css']
 })
-export class TodoComponent{
+export class TodoComponent {
     todo: any; //TODO: change to Todo...
     id:number;
+    // id2:number;
     
-    constructor( private activated:ActivatedRoute, private todoService: TodoService ){}
+    constructor( private activated:ActivatedRoute, private router: Router, private todoService: TodoService, private location: Location ){}
 
     ngOnInit(){
         //TODO: Change this shit...
-        this.id = this.activated.snapshot.params['id'];
-        this.todoService.getAllTodos().subscribe(allTodos => {
-            for(let todo of allTodos.todos){
-                if(this.id == todo.id) this.todo = todo
-            }
+        this.activated.paramMap.subscribe((params: ParamMap) => {
+            console.log('params: ',params)
+            this.id = parseInt(params.get('id'));
+            console.log('id in getParams: ', this.id)
+
+            this.todoService.getAllTodos().subscribe(allTodos => {
+                console.log('id in getTodos: ', this.id)
+                for(let todo of allTodos.todos){
+                    if(this.id == todo.id) this.todo = todo
+                }
+            })
         })
+        // this.id = this.activated.snapshot.params['id'];
+        // this.id2 = this.activated.snapshot.params['id2'] ? this.activated.snapshot.params['id2'] : null
+      
+    }
+
+    back(){
+        // this.router.navigate(['../'], {relativeTo:this.activated})
+        this.location.back();
     }
 }

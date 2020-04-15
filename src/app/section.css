@@ -11,6 +11,7 @@
 }
 button{
     border-radius: 3px;
+    width: fit-content;
 }
 .header{
     display: flex;
@@ -24,6 +25,25 @@ button{
 }
 
 *{ direction:rtl}
+
+.assignments{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.assignment{
+    border: 2px solid rgb(241, 168, 85);
+    border-radius: 50%;
+    width: fit-content;
+    margin: 2%;
+    padding: 3%;
+}
+
+.assignment:hover{
+    background-color: rgb(241, 168, 85);
+    cursor: pointer;
+}
 
 .sports-div, #add{
     border-radius: 50%;
