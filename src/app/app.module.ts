@@ -13,8 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducer } from './app.reducer';
 import { environment } from 'src/environments/environment';
+import { appReducer } from './state/app.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { environment } from 'src/environments/environment';
     }),
     CommonModule,
     LayoutModule, SplitterModule, PanelBarModule,
-    StoreModule.forRoot({reducer}),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       name: 'my-calendar devtools',
       maxAge: 25,

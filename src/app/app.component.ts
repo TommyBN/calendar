@@ -3,7 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: [`
+    .container{ padding: 3% } 
+    #schedule{ padding: 5% }
+  `]
 })
 export class AppComponent {
   title = 'my-calendar';

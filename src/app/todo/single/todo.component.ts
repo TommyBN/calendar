@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Todo } from '../../models';
+import { Component, OnInit } from '@angular/core';
+// import { Todo } from '../../models';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { TodoService } from '../todo.service';
 import { Location } from '@angular/common';
@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
     templateUrl: './todo.component.html',
     styleUrls:['../../section.css']
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
     todo: any; //TODO: change to Todo...
     id:number;
     // id2:number;
