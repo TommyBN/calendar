@@ -4,9 +4,7 @@ import { TodoModule } from './todo.module';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-    providedIn: TodoModule
-})
+@Injectable()
 export class TodoService{
 
 

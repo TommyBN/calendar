@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Goal } from './Goal';
 
-@Injectable({
-    providedIn: GoalsModule
-})
+@Injectable()
 export class GoalsService{
 
     private url = 'http://localhost:8080/goals';

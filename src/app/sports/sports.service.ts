@@ -4,9 +4,9 @@ import { SportsModule } from './sports.module';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-    providedIn: SportsModule
-})
+@Injectable(
+    // providedIn: SportsModule
+)
 export class SportsService{
 
 
