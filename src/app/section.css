@@ -24,6 +24,10 @@ button{
     flex-direction: column;
 }
 
+h5{
+    display: inline;
+}
+
 *{ direction:rtl}
 
 .assignments{
@@ -45,10 +49,20 @@ button{
     cursor: pointer;
 }
 
+/* sports section*/
+
+.sport-assignments{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows:  25% 25% 25% 25%;
+    grid-gap: -5px;
+}
+
 .sports-div, #add{
     border-radius: 50%;
     width: fit-content;
-    padding: 5%;
+    height: fit-content;
+    padding: 10%;
     border: 1px solid black;
 }
 .sports-div, .assignments, #path{

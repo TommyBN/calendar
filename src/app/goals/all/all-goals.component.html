@@ -19,7 +19,7 @@
         <div class="assignments">
             <div *ngFor="let goal of goals" [routerLink]="['/goals', goal.id]"><h4>{{goal.title}}, {{goal.id}}</h4></div>
         </div>
-        <button [routerLink]="['/goals', goal.id, edit]" >הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
+        <button [routerLink]="['/goals', 0, 'edit']" >הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
 
     
     </div>

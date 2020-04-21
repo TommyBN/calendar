@@ -5,9 +5,11 @@ import { GoalsService } from '../goals.service';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../state/goals.state';
 import { getGoals } from '../state/goals.reducer';
+import { Location } from '@angular/common';
 
 @Component({
-    templateUrl:'./goal-details.component.html'
+    templateUrl:'./goal-details.component.html',
+    styleUrls: ['../../section.css']
 })
 export class GoalDetailsComponent implements OnInit{
 
@@ -19,7 +21,8 @@ export class GoalDetailsComponent implements OnInit{
         private router:Router, 
         private route: ActivatedRoute,
         private goalsService: GoalsService,
-        private store: Store<AppState>
+        private store: Store<AppState>,
+        private location: Location
     ){}
 
     ngOnInit(){
@@ -43,7 +46,7 @@ export class GoalDetailsComponent implements OnInit{
         }
     }
 
-    goToGoal(id:number){
-        /* trial 1*/ this.router.navigate(['/goals', id])
+    goBack(){
+        this.location.back();
     }
 }

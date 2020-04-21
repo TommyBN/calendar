@@ -1,17 +1,33 @@
-<h1>goal-details</h1>
 
 
-    <h4>id: {{currentGoal.id}}</h4>
-    <h4>path: {{currentGoal.path}}</h4>
-    <h4>title: {{currentGoal.title}}</h4>
-    <h4>description: </h4><p>{{currentGoal.description}}</p>
-    <h4>destination: {{currentGoal.destination}}</h4>
-    <h4 *ngIf="currentGoal.when.whenGeneral">when: {{currentGoal.when.whenGeneral}}</h4>
-    <h4 *ngIf="currentGoal.when.whenDay">when: {{currentGoal.when.whenDay}}</h4>
-    <h4 *ngIf="currentGoal.when.whenWeek">when: {{currentGoal.when.whenWeek}}</h4>
-    <h4 *ngIf="currentGoal.when.whenMonth">when: {{currentGoal.when.whenMonth}}</h4>
-    <h4>secondary goals:</h4>
+<div class="container">
+    
+    <div class="general-buttons">
+        <button (click)="goBack()">חזרה</button>
+    </div>
+
+
+
+    <div class="main">
+        <div id="path">
+            <h5>{{currentGoal.path}}</h5>&nbsp;
+            <i class="fas fa-chevron-left"></i>&nbsp;
+            <h5>{{currentGoal.title}}</h5>
+        </div>
+        <h5>תיאור: </h5><p>{{currentGoal.description}}</p>
+        <h5>יעד: </h5>
+        <h6>{{currentGoal.destination}}</h6>
+        <h4 *ngIf="currentGoal.when.whenGeneral">when: {{currentGoal.when.whenGeneral}}</h4>
+        <h4 *ngIf="currentGoal.when.whenDay">when: {{currentGoal.when.whenDay}}</h4>
+        <h4 *ngIf="currentGoal.when.whenWeek">when: {{currentGoal.when.whenWeek}}</h4>
+        <h4 *ngIf="currentGoal.when.whenMonth">when: {{currentGoal.when.whenMonth}}</h4>
+    </div>
+
+    
+    <h5>מטרות משנה:</h5>
     <ul>
         <li *ngFor="let secGoal of currentGoal.secondaryGoals" [routerLink]="['/goals', secGoal.id]">{{secGoal.title}}</li>
     </ul>
  
+
+</div>
