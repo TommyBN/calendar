@@ -10,13 +10,13 @@
 
     <h1>{{header}}</h1>
 
-    <label for="male">תחום:</label>
+    <label for="field">תחום:</label>
     <input type="text" formControlName="field">
 
-    <label for="male">כותרת:</label>
+    <label for="title">כותרת:</label>
     <input type="text" formControlName="title">
 
-    <label for="male">תיאור:</label>
+    <label for="description">תיאור:</label>
     <input type="text" formControlName="description">
 
 
@@ -26,24 +26,24 @@
         <div *ngIf="ShowWhenForm"  formGroupName="when">
             <h4>יעדים:</h4>
             <div class="formGroup">
-                <label for="whenGeneral"> יעד כללי:</label>
-                <input type="text" formControlName="whenGeneral">
-                <input type="date" formControlName="whenGeneralDate">
+                <label for="destinationGeneral"> יעד כללי:</label>
+                <input type="text" formControlName="destinationGeneral">
+                <input type="date" formControlName="destinationGeneralDate">
             </div>
             <div class="formGroup">
-                <label for="whenMonth"> יעד חודשי:</label>
-                <input type="text" formControlName="whenMonth">
-                <input type="date" formControlName="whenMonthDate">
+                <label for="destinationMonth"> יעד חודשי:</label>
+                <input type="text" formControlName="destinationMonth">
+                <input type="date" formControlName="destinationMonthDate">
             </div>
             <div class="formGroup">
-                <label for="whenWeek"> יעד שבועי:</label>
-                <input type="text" formControlName="whenWeek">
-                <input type="date" formControlName="whenWeekDate">
+                <label for="destinationWeek"> יעד שבועי:</label>
+                <input type="text" formControlName="destinationWeek">
+                <input type="date" formControlName="destinationWeekDate">
             </div>
             <div class="formGroup">
-                <label for="whenDay"> יעד יומי:</label>
-                <input type="text" formControlName="whenDay">
-                <input type="date" formControlName="whenDayDate">
+                <label for="destinationDay"> יעד יומי:</label>
+                <input type="text" formControlName="destinationDay">
+                <input type="date" formControlName="destinationDayDate">
             </div>
         </div>
 

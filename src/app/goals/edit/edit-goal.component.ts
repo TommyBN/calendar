@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { GoalsService } from '../goals.service';
+import { Goal } from '../Goal';
 
 @Component({
     templateUrl:'./edit-goal.component.html',
@@ -18,22 +20,24 @@ export class EditGoalComponent implements OnInit {
         path: new FormControl('גדכדג', Validators.required),
         description: new FormControl('זהו תיאור של המטרה שלי האם השדה מספיק ארוך כדי להכיל?', Validators.required),
         field: new FormControl('', Validators.required),
-        date: new FormControl(''),
+        event: new FormControl(''),
         secondaryGoals: new FormControl(''),
-        when: new FormGroup({
-          whenGeneral: new FormControl(''),
-          whenGeneralDate: new FormControl(''),
-          whenMonth: new FormControl(''),
-          whenMonthDate: new FormControl(''),
-          whenWeek: new FormControl(''),
-          whenWeekDate: new FormControl(''),
-          whenDay: new FormControl(''),
-          whenDayDate: new FormControl('')
+        destination: new FormGroup({
+          destinationGeneral: new FormControl(''),
+          destinationGeneralDate: new FormControl(''),
+          destinationMonth: new FormControl(''),
+          destinationMonthDate: new FormControl(''),
+          destinationWeek: new FormControl(''),
+          destinationWeekDate: new FormControl(''),
+          destinationDay: new FormControl(''),
+          destinationDayDate: new FormControl('')
         })
       });
 
 
-    constructor(private route: ActivatedRoute){}
+    constructor(
+        private route: ActivatedRoute,
+        private goalsService: GoalsService){}
     
     
     ngOnInit(){
@@ -56,7 +60,10 @@ export class EditGoalComponent implements OnInit {
     
 
     onSubmit() {
-        // TODO: Use EventEmitter with form value
         console.log(this.goalForm.value);
+        // let goal = new Goal(...this.goalForm.value);
+        this.goalsService.addGoal(this.goalForm.value).subscribe((message)=>{
+            console.log(message);
+        })
       }
 }

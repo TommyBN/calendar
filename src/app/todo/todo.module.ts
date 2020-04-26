@@ -7,18 +7,22 @@ import { TodoService } from './todo.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './todo-reducer';
+import { EditTodoComponent } from './edit/edit-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule, 
     TodoRoutingModule,
     HttpClientModule,
-    StoreModule.forFeature('todo', todoReducer)
+    StoreModule.forFeature('todo', todoReducer),
+    ReactiveFormsModule
     
   ],
   declarations: [
     AllTodosComponent,
-    TodoComponent
+    TodoComponent,
+    EditTodoComponent
   ],
   providers:[
     TodoService

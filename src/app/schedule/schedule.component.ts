@@ -27,6 +27,16 @@ export class  ScheduleComponent {
         color: colors.blue,
         start: new Date(),
       },
+      {
+        title: 'testing event 1',
+        color: colors.blue,
+        start: new Date(2021,1,23),
+      },
+      {
+        title: 'A non draggable event',
+        color: colors.blue,
+        start: new Date(),
+      },
     ];
   
     refresh: Subject<any> = new Subject();

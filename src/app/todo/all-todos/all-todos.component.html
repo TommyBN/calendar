@@ -24,11 +24,9 @@
             </div>
         </div>
         <h3>משימות:</h3>
-        <div class="assignments">
-            <div class="assignment" *ngFor="let todo of allTodos.todos" [routerLink]="['/todo', todo.id]">{{todo.title}}</div>
+        <div *ngIf="todos" class="assignments">
+            <div class="assignment" *ngFor="let todo of allTodos" [routerLink]="['/todo', todo.id]">{{todo.title}}</div>
         </div>
-        <button (click)="addTodo()">הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
-
-    
+        <button [routerLink]="['/todo', 0, 'edit']" >הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
     </div>
 </div>

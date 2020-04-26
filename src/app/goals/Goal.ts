@@ -1,14 +1,25 @@
 import { CalendarEvent } from "angular-calendar";
 
-export interface Goal {
-        id: number;
-        path: string;//?
-        title: string;
-        description: string;
-        destination: string;//?
-        when: When;
-        event: CalendarEvent;
-        secondaryGoals: Goal[];
+export class Goal {
+        id: number; path: string; title: string; description: string;
+        destination: string; when: When; event: CalendarEvent; 
+        secondaryGoals: Goal[]
+    constructor(
+        id: number, path: string, title: string, description: string,
+        destination: string, when: When, event: CalendarEvent, 
+        secondaryGoals: Goal[]
+    )
+    {
+        this.id = id;
+        this.path = path;
+        this.title = title;
+        this.description = description;
+        this.destination = destination;
+        this.when = when;
+        this.event = event;
+        this.secondaryGoals = secondaryGoals;
+
+    }
 }
 
 interface When {

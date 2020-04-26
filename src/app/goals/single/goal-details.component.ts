@@ -30,9 +30,7 @@ export class GoalDetailsComponent implements OnInit{
             let id = +params.get('id');
             this.store.pipe(select(getGoals)).subscribe(
                 goals => {
-                    console.log(this.currentGoal);
                     this.currentGoal = this.getGoalById(goals, id);
-                    console.log(this.currentGoal);
                 })
         })
     }

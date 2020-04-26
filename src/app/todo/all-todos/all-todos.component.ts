@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { TodoService } from '../todo.service';
-import * as fromProduct from '../todo-reducer';
+import { Todo } from '../Todo';
 
 @Component({
     templateUrl: './all-todos.component.html',

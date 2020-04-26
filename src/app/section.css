@@ -38,7 +38,7 @@ h5{
 
 .assignment{
     border: 2px solid rgb(241, 168, 85);
-    border-radius: 50%;
+    border-radius: 10%;
     width: fit-content;
     margin: 2%;
     padding: 3%;

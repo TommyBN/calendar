@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { GoalsModule } from './goals.module';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Goal } from './Goal';
 
-@Injectable()
-export class GoalsService{
+@Injectable() export class GoalsService{
 
-    private url = 'http://localhost:8080/goals';
-
+  private url = 'http://localhost:8080/goals';
+  // private httpOptions = {
+    //     headers: new HttpHeaders({
+    //       'Content-Type':  'application/json',
+    //       "Access-Control-Allow-Origin": "*"
+    //     })
+    //   };
 
     constructor ( private http:HttpClient) {}
 
@@ -16,8 +19,9 @@ export class GoalsService{
         return <Observable<Goal[]>>this.http.get(`${this.url}/all`)
     }
 
-    // getSingleTodo():Observable<any>{
-
-    // }
+    addGoal(goal:Goal):Observable<any>{
+        console.log('goal on service: ', goal)
+        return <Observable<any>>this.http.post(`${this.url}/new`, goal, {responseType: 'text'})
+    }
 
 }

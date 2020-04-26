@@ -1,0 +1,37 @@
+<div class="general-buttons">
+    <button [routerLink]="['../../']">חזרה</button>
+</div>
+
+
+<form [formGroup]="todoForm" >
+    
+    
+    <div class="container">
+
+    <h1>{{header}}</h1>
+
+    <div formGroupName="event">
+        <h4>תאריך:</h4>
+        <div class="formGroup">
+            <label for="day"> יום:</label>
+            <input type="date" formControlName="event">
+        </div>
+    </div>
+   
+    <label for="title">כותרת:</label>
+    <input type="text" formControlName="title">
+
+    <label for="description">תיאור:</label>
+    <input type="text" formControlName="description">
+
+    <label for="path">תיאור:</label>
+    <input type="text" formControlName="path">
+
+
+
+
+
+        <button (click)="onSubmit()" [disabled]="!todoForm.valid">צור</button>
+
+    </div>
+</form>
