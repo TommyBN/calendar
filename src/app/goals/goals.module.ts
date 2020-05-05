@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GoalsRoutingModule } from './goals-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { goalsReducer } from './state/goals.reducer';
 import { AllGoalsComponent } from './all/all-goals.component';
 import { GoalDetailsComponent } from './single/goal-details.component';
 import { EditGoalComponent } from './edit/edit-goal.component';
@@ -16,7 +15,7 @@ import { GoalsService } from './goals.service';
     GoalsRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forFeature('goals', goalsReducer)
+    StoreModule.forFeature('goals', {})
   ],
   declarations: [
     AllGoalsComponent,

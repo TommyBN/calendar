@@ -1,11 +1,17 @@
 /* sections css*/
-
+#main{
+    height: 100%;
+    background-color: blue;
+    background-image: linear-gradient(to top left, blue, white);
+    color: white;
+}
 .container{
     padding:5%;
     text-align: right;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 .general-buttons{
     display:flex;

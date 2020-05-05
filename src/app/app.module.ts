@@ -7,8 +7,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LayoutModule, SplitterModule, PanelBarModule } from '@progress/kendo-angular-layout';
 
 import { AppComponent } from './app.component';
-import { ScheduleComponent} from './schedule/schedule.component';
-import { ScheduleHeaderComponent } from './schedule/schedule-header/schedule-header.component';
+import { ScheduleComponent} from './calendar/calendar.component';
+import { ScheduleHeaderComponent } from './calendar/calendar-header/calendar-header.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';

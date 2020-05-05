@@ -3,8 +3,8 @@ import { CalendarView } from 'angular-calendar';
 
 
 @Component({
-  selector: 'app-schedule-header',
-  templateUrl: './schedule-header.component.html',
+  selector: 'calendar-header',
+  templateUrl: './calendar-header.component.html',
   styles:[
     `
     .fa-arrow-alt-circle-left, .fa-arrow-alt-circle-right{

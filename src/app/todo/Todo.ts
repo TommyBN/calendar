@@ -1,9 +1,10 @@
 import { CalendarEvent } from "angular-calendar";
 
 export interface Todo {
-    id: string,
+    _id: string,
     title: string,
     path: string,
     description: string,
-    event: CalendarEvent
+    event: CalendarEvent,
+    secondaryTodos: Todo[]
 }

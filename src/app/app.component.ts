@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styles: [`
     .container{ padding: 3% } 
-    #schedule{ padding: 5% }
+    #schedule{ padding: 5%; overflow: hidden }
+    
   `]
 })
 export class AppComponent {

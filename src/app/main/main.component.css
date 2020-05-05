@@ -5,7 +5,8 @@
 }
 .mainDiv{
     box-sizing: border-box;
-    border-radius: 1px;
+    border-radius: 10px;
+    border: 2px solid rgb(144, 35, 177);
     height: 25%;
     width: 90%;
     margin: 5%;
@@ -15,7 +16,7 @@
 }
 
 .mainDiv:hover{
-    background-color: rgb(92, 89, 86);
+    background-color: rgb(144, 35, 177);
     cursor: pointer;
     color: azure;
 }

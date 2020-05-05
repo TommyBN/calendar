@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'main-menu',
-    templateUrl: './main-menu.component.html',
-    styleUrls: ['./main-menu.component.css']
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.css']
 })
 
-export class MainMenuComponent {
+export class MainComponent {
 
     subjects:string[] = ['משימות' ,'מטרות', 'ספורט ופנאי', 'איזור אישי'];
 

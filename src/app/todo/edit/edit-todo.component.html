@@ -1,37 +1,30 @@
-<div class="general-buttons">
-    <button [routerLink]="['../../']">חזרה</button>
-</div>
+<div id="main">
 
-
-<form [formGroup]="todoForm" >
+    <div class="general-buttons">
+        <button [routerLink]="['../../']">חזרה</button>
+    </div>
     
+    <form [formGroup]="todoForm" >
+        <div class="container">
+            <h1>{{header}}</h1>
+            
+            <label for="title">כותרת:</label>
+            <input type="text" formControlName="title">
+            
+            <label for="description">תיאור:</label>
+            <input type="text" formControlName="description">
+
+            <label for="start">תאריך:</label>
+            <input type="datetime-local" formControlName="start">
+            
+            <!-- <label for="field">בחר תחום:</label>
+            <select formControlName="field">
+            <option *ngFor="let field of fields" value="field">{{field}}</option>
+            </select> -->
     
-    <div class="container">
-
-    <h1>{{header}}</h1>
-
-    <div formGroupName="event">
-        <h4>תאריך:</h4>
-        <div class="formGroup">
-            <label for="day"> יום:</label>
-            <input type="date" formControlName="event">
+            <button (click)="onSubmit()" [disabled]="!todoForm.valid">צור</button>
+    
+            <br><br><br><br><br><br><br><br><br><br>
         </div>
-    </div>
-   
-    <label for="title">כותרת:</label>
-    <input type="text" formControlName="title">
-
-    <label for="description">תיאור:</label>
-    <input type="text" formControlName="description">
-
-    <label for="path">תיאור:</label>
-    <input type="text" formControlName="path">
-
-
-
-
-
-        <button (click)="onSubmit()" [disabled]="!todoForm.valid">צור</button>
-
-    </div>
-</form>
+    </form>
+</div>

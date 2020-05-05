@@ -7,25 +7,21 @@
         <button [routerLink]="['/sports-and-hobbies']">ספורט ופנאי</button>
         <button [routerLink]="['/personal-area']">איזור אישי</button>
     </div>
-
-    <!--]="['/todos']"><h1>משימות</h1></div></div>
-    <div class="mainDiv"><div [routerLink]="['/goals']"><h1>מטרות</h1></div></div>
-    <div class="mainDiv"><div [routerLink]="['/sports-and-hobbies']"><h1>ספורט ופנאי</h1></div></div>
-    <div class="mainDiv"><div [routerLink]="['/personal-area']"><-->
     
-    
-    <div class="main"><!--for todo-->
-        <div class="header"><!---->
+    <div class="main">
+        <div class="header">
             <div id="path">
-                משימות <!--FROM WHERE??-->
+                משימות 
             </div>
-            <div id="event-date"><!---->
-                תאריך יעד?
+            <div id="event-date">
+                תאריך יעד
             </div>
         </div>
         <h3>משימות:</h3>
-        <div *ngIf="todos" class="assignments">
-            <div class="assignment" *ngFor="let todo of allTodos" [routerLink]="['/todo', todo.id]">{{todo.title}}</div>
+        <div *ngIf="allTodos" class="assignments">
+            <div class="assignment" *ngFor="let todo of allTodos" [routerLink]="['/todo', todo.id]">{{todo.title}}
+            &nbsp; <span>{{todo.event}}</span>
+            </div>
         </div>
         <button [routerLink]="['/todo', 0, 'edit']" >הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
     </div>

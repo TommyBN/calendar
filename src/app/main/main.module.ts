@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainMenuRoutingModule } from './main-menu-routing.module';
-import { MainMenuComponent } from './main-menu.component';
+import { MainMenuRoutingModule } from './main-routing.module';
+import { MainComponent } from './main.component';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { MainMenuComponent } from './main-menu.component';
     MainMenuRoutingModule
   ],
   declarations: [
-    MainMenuComponent
+    MainComponent
   ]
 })
 export class MainMenuModule { }

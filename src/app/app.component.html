@@ -1,15 +1,10 @@
   
   <kendo-splitter >
-    <h1>after splitter</h1>
     <kendo-splitter-pane id="schedule" [collapsible]="true"  min="40%">
-       <app-schedule></app-schedule>
+       <app-calendar></app-calendar>
     </kendo-splitter-pane>
-  
-    <!-- <kendo-splitter-pane>
-        <h3>Middle pane</h3>
-    </kendo-splitter-pane> -->
-  
-    <kendo-splitter-pane size="50%" min="15%">
+    
+    <kendo-splitter-pane size="50%" min="15%" [collapsible]="true">
         <router-outlet></router-outlet>
     </kendo-splitter-pane>
   </kendo-splitter>

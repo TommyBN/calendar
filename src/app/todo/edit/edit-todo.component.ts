@@ -11,14 +11,23 @@ export class EditTodoComponent implements OnInit {
   
     id:number;
     header:string;
-    ShowSecondaryForm: boolean = false;
-    addRemoveText: string = "הוסף משימות משנה";
+    // ShowSecondaryForm: boolean = false;
+    // addRemoveText: string = "הוסף משימות משנה";
+    // fields:string[] = ['עבודה', 'לימודים', 'פנאי', 'כללי']
+
+    /**calendar-event scheme:
+        title: '',
+        color: ,
+        start: new Date(),
+        draggable: true,
+    */
 
     todoForm = new FormGroup({
+        start: new FormControl(''),
         title: new FormControl('המטרה החשובה ביותר', Validators.required),
-        path: new FormControl('גדכדג', Validators.required),
+        path: new FormControl('משימות', Validators.required),
         description: new FormControl('זהו תיאור של המטרה שלי האם השדה מספיק ארוך כדי להכיל?', Validators.required),
-        event: new FormControl(''),
+        
       });
 
 
@@ -34,15 +43,15 @@ export class EditTodoComponent implements OnInit {
         })
     }
 
-    addRemove(){
-        this.ShowSecondaryForm = !this.ShowSecondaryForm;
-        this.addRemoveText = this.addRemoveText == "הוסף משימות משנה" ? "הסתר משימות משנה" : "הוסף משימות משנה";
-    }
+    // addRemove(){
+    //     this.ShowSecondaryForm = !this.ShowSecondaryForm;
+    //     this.addRemoveText = this.addRemoveText == "הוסף משימות משנה" ? "הסתר משימות משנה" : "הוסף משימות משנה";
+    // }
 
     onSubmit() {
-        console.log(this.todoForm.get('event'))
-        // this.todoService.addTodo(this.todoForm.value).subscribe((message)=>{
-        //     console.log(message);
-        // })
+        console.log('form: ',this.todoForm.value)
+        this.todoService.addTodo(this.todoForm.value).subscribe((message)=>{
+            console.log(message);
+        })
       }
 }
