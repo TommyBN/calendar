@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 
 @Component({
-    templateUrl: 'personal-area.component.html',
+    templateUrl: 'personals.component.html',
     styleUrls:['../../section.css']
 })
-export class PersonalAreaComponent{
+export class PersonalsComponent{
 
 }

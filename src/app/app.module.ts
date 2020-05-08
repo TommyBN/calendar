@@ -8,17 +8,18 @@ import { LayoutModule, SplitterModule, PanelBarModule } from '@progress/kendo-an
 
 import { AppComponent } from './app.component';
 import { ScheduleComponent} from './calendar/calendar.component';
-import { ScheduleHeaderComponent } from './calendar/calendar-header/calendar-header.component';
+import { ScheduleHeaderComponent } from './calendar/header/calendar-header.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { appReducer } from './state/app.reducer';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     ScheduleComponent,
     ScheduleHeaderComponent,
     
@@ -33,7 +34,7 @@ import { appReducer } from './state/app.reducer';
     }),
     CommonModule,
     LayoutModule, SplitterModule, PanelBarModule,
-    StoreModule.forRoot(appReducer),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'my-calendar devtools',
       maxAge: 25,

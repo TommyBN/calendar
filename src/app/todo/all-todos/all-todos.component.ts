@@ -30,22 +30,16 @@ export class AllTodosComponent implements OnInit{
     numOfMissions:number;
 
     ngOnInit(){
-    //    this.store.subscribe(state=>{
-    //         this.numOfMissions = state.numOfMissions;
-    //     });
-
         this.todoService.getAllTodos().subscribe(todos => {
             this.allTodos = todos;
-            console.log('all todos: ', this.allTodos)
+            console.log('all todos: ', this.allTodos);
+            this.todoService.setTodos(todos);
         })
+
+        
     }
 
-    addTodo(){
-        this.store.dispatch({
-            type: "add-mission", 
-            payload: ++this.numOfMissions
-        });
-    }
+    
 
 
   

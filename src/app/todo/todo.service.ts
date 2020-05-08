@@ -15,8 +15,15 @@ export class TodoService{
         private http:HttpClient,
         private store: Store<any>) {}
 
-    getAllTodos():Observable<Todo[]>{
-        return <Observable<Todo[]>>this.http.get(this.url)
+    getAllTodos(): Observable<Todo[]>{
+        return <Observable<Todo[]>>this.http.get(this.url);
+    }
+
+    setTodos(todos:Todo[]){
+        this.store.dispatch({
+            type: "set-todos",
+            payload: todos
+        })
     }
 
     addTodo(todo):Observable<any>{
