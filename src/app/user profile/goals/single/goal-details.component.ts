@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 
 @Component({
     templateUrl:'./goal-details.component.html',
-    styleUrls: ['../../section.css']
+    styleUrls: ['../../../section.css']
 })
 export class GoalDetailsComponent implements OnInit{
 

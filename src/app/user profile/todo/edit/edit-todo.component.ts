@@ -5,7 +5,7 @@ import { TodoService } from '../todo.service';
 
 @Component({
     templateUrl:'./edit-todo.component.html',
-    styleUrls:['../../form.css']
+    styleUrls:['../../../form.css']
 })
 export class EditTodoComponent implements OnInit {
   

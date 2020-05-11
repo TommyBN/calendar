@@ -6,7 +6,7 @@ import { Goal } from '../Goal';
 
 @Component({
     templateUrl:'./edit-goal.component.html',
-    styleUrls:['../../form.css']
+    styleUrls:['../../../form.css']
 })
 export class EditGoalComponent implements OnInit {
   

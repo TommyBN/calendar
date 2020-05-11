@@ -6,7 +6,7 @@ import { Todo } from '../Todo';
 
 @Component({
     templateUrl: './todo.component.html',
-    styleUrls:['../../section.css']
+    styleUrls:['../../../section.css']
 })
 export class TodoComponent implements OnInit {
     todo: Todo; 

@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { TodoService } from '../todo.service';
 import { Todo } from '../Todo';
-import { colors } from 'src/app/calendar/colors';
+import { colors } from 'src/app/user profile/calendar/colors';
 
 @Component({
     templateUrl: './all-todos.component.html',
-    styleUrls: ['../../section.css']
+    styleUrls: ['../../../section.css']
 })
 export class AllTodosComponent implements OnInit{
 

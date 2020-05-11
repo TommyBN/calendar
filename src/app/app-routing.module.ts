@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { WelcomeComponent } from './welcome page/welcome.component';
+import { AuthService } from './welcome page/auth.service';
 
 const routes: Routes = [
-    { path:'', pathMatch: 'full', redirectTo: 'main' },
-    { path: 'main', component: MainComponent },
-    { path: 'todo', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule), pathMatch: 'prefix' },
-    { path: 'goals', loadChildren: () => import('./goals/goals.module').then( m => m.GoalsModule), pathMatch: 'prefix' },
-    { path: 'sports-and-hobbies', loadChildren: () => import('./sports/sports.module').then( m => m.SportsModule), pathMatch: 'prefix' },
-    { path: 'personal-area', loadChildren: () => import('./personals/personals.module').then( m => m.PersonalsModule), pathMatch: 'prefix'},
+    { path:'', pathMatch: 'full', redirectTo: 'welcome' },
+    { path: 'welcome', component: WelcomeComponent },
+    { 
+      path: 'user/:id', 
+      loadChildren: () => import('./user profile/user.module')
+      .then(m => m.UserModule), 
+      canLoad: [AuthService], pathMatch: 'prefix' 
+    },
+    
   ];
 
 
