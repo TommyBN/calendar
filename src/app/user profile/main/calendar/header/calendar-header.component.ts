@@ -14,7 +14,7 @@ import { CalendarView } from 'angular-calendar';
     `
   ]
 })
-export class ScheduleHeaderComponent   {
+export class CalendarHeaderComponent   {
 
   @Input() view: CalendarView | 'month' | 'week' | 'day';
 

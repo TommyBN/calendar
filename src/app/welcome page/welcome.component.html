@@ -1,14 +1,36 @@
-<div class="funky">
-    <h1>Organize your life.</h1>
-</div>
-<div class="monkey">
-    <h2>Sign up. You dont have to insert any personal details.</h2>
+<div class="navbar">
+    <div id="logo">
+        <span class="logo">Re-arrangement</span>
+    </div>
+    <div id="referer">
+        <div onclick="JavaScript:window.location.hash = '#login'" class="referer">
+          log in
+        </div>
+        <div onclick="JavaScript:window.location.hash = '#sign-up'" class="referer">
+           sign up
+        </div>
+    </div>
 </div>
 
-<div id="sign-up">
-    <app-sign-up></app-sign-up>
-</div>
+<div class="container">
+    
+    <div class="funky">
+        <h1>Organize your life.</h1>
+    </div>
+    <div class="monkey">
+        <h2>Sign up. You dont have to insert any personal details.</h2>
+    </div>
+    
+    <div id="forms">
+        
+        <div id="sign-up">
+            <app-sign-up></app-sign-up>
+        </div>
+        
+        <div id="login">
+            <app-login></app-login>
+        </div>
 
-<div id="login">
-    <app-login></app-login>
+    </div>
+
 </div>

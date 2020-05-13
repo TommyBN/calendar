@@ -1,14 +1,18 @@
-<h1>Log In</h1>
-<div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div>
-            name:<input type="text" name="username">
-        </div>
-        <div>
-            password: <input type="password" name="password">
-        </div>
-        <div>
-            <button type="submit">Log In</button>
-        </div>
-    </form>    
+<div class="container">
+    
+    <h4>Allready have an account?</h4><h4>Log in!</h4>
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-input">
+                name: <br><input type="text" name="username">
+            </div>
+            <div class="form-input">
+                password: <br><input type="password" name="password">
+            </div>
+            <div>
+                <button type="submit">Log In</button>
+            </div>
+        </form>    
+    </div>
+
 </div>

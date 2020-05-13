@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarView } 
     from 'angular-calendar';
 import { colors } from './colors';
-import { TodoService } from '../todo/todo.service';
+import { TodoService } from '../../todo/todo.service';
 import { Store, select } from '@ngrx/store';
 
 @Component({
@@ -11,7 +11,7 @@ import { Store, select } from '@ngrx/store';
     templateUrl:'./calendar.component.html'
 })
  
-export class  ScheduleComponent implements OnInit {
+export class  CalendarComponent implements OnInit {
 
     view: CalendarView = CalendarView.Month;
 
@@ -54,9 +54,6 @@ export class  ScheduleComponent implements OnInit {
       newStart,
       newEnd,
     }: CalendarEventTimesChangedEvent): void {
-      console.log('the event that is being changed: ', event)
-      console.log('the new start date: ', newStart)
-      console.log('the new end date: ', newEnd)
       event.start = newStart;
       event.end = newEnd;
       this.refresh.next();

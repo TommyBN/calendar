@@ -1,15 +1,17 @@
 
-<h1>Sign Up</h1>
-<div>
+<div class="container">
+    <h2>Sign Up</h2>
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-        <div>
-            name:<input type="text" name="username">
+        <div class="form-input">
+            name:
+            <br><input type="text" formControlName="username">
+        </div>
+        <div class="form-input">
+            password: 
+            <br><input type="password" formControlName="password">
         </div>
         <div>
-            password: <input type="password" name="password">
-        </div>
-        <div>
-            <button type="submit">Sign Up</button>
+            <button type="submit">Sign Up!</button>
         </div>
     </form>    
 </div>
