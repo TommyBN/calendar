@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-menu',
@@ -8,9 +9,20 @@ import { Component } from '@angular/core';
 
 export class MenuComponent {
 
-    subjects:string[] = ['משימות' ,'מטרות', 'ספורט ופנאי', 'איזור אישי'];
+    modules = [
+        { name: 'משימות', route: 'todos' }, 
+        { name: 'מטרות', route: 'goals' },
+        { name: 'ספורט ופנאי', route: 'sports'}, 
+        { name: 'איזור אישי', route: 'personals'} 
+    ];
+
+    constructor(private router: Router, private actRout:ActivatedRoute){}
 
 
+    gotoModule(route) {
+        console.log(this.actRout)
+        this.router.navigate([`../${route}`], { relativeTo: this.actRout });
+      }
 
 
 }
