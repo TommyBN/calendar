@@ -22,11 +22,10 @@ export class LoginComponent{
         ){}
 
         onSubmit() {
-
+          console.log(this.loginForm.value)
             this.http.post<any>(this.SERVER_URL, this.loginForm.value).subscribe(
               (res) => {
-                  console.log(res);
-                  let id = res.user._id
+                  let id = res.user.id
                   if(res.verified) this.router.navigate([`/user/${id}`]) 
             },
               (err) => console.log(err)

@@ -1,12 +1,8 @@
 <div class="container">
 
-    <div class="mainDiv" *ngFor="let module of modules" (click)="gotoModule(module.route)">
+    <div class="mainDiv" *ngFor="let module of modules" 
+    (click)="gotoModule(module.route)">
         <h1>{{module.name}}</h1>
     </div>
-<!-- 
-    <div class="mainDiv" (click)="gotoModule()"><h1>משימות</h1></div>
-    <div class="mainDiv" [routerLink]="['/goals']"><h1>מטרות</h1></div>
-    <div class="mainDiv" [routerLink]="['/sports-and-hobbies']"><h1>ספורט ופנאי</h1></div>
-    <div class="mainDiv" [routerLink]="['/personal-area']"><h1>איזור אישי</h1></div> -->
 
 </div>

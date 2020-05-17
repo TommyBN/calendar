@@ -4,10 +4,10 @@
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-input">
-                name: <br><input type="text" name="username">
+                name: <br><input type="text" formControlName="username">
             </div>
             <div class="form-input">
-                password: <br><input type="password" name="password">
+                password: <br><input type="password" formControlName="password">
             </div>
             <div>
                 <button type="submit">Log In</button>

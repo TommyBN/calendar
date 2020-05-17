@@ -3,10 +3,22 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Store, select } from '@ngrx/store';
 
-interface User {
+export interface User {
     _id: string;
-    username: string;
+    name: string;
     password: string;
+}
+
+export function user(state, action){
+    switch(action.type){
+        case 'set-user':
+            return {
+                ...state,
+                currentUser: action.payload
+            }
+        default:  
+            return state;
+    }
 }
 
 @Injectable()
@@ -18,21 +30,17 @@ export class UserService{
         private http:HttpClient,
         private store: Store<any>) {}
 
-    getUser(_id){
-        this.http.get(`${this.url}/id=${_id}`).subscribe(user=>{
+    getUser(id): Observable<User>{
+        return <Observable<User>>this.http.get(`${this.url}?id=${id}`)
+    }
+
+    setUserInStore(user){
             this.store.dispatch({
                 type:'set-user',
                 payload: user
             })
-        })
     }
 
-    // setUserToStore(user){
-    //     this.store.dispatch({
-    //         type:'set-user',
-    //         payload: user
-    //     })
-    // }
-
+ 
 
 }

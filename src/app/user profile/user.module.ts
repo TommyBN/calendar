@@ -10,8 +10,8 @@ import { UserRoutingModule } from './user-routing.module';
 import { MenuComponent } from './main/menu/menu.component';
 import { MainComponent } from './main/main.component';
 import { CalendarComponent } from './main/calendar/calendar.component'
-import { UserService } from './user.service';
 import { CalendarHeaderComponent } from './main/calendar/header/calendar-header.component';
+import { UserService, user } from './User';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { CalendarHeaderComponent } from './main/calendar/header/calendar-header.
     }),
     LayoutModule, SplitterModule, PanelBarModule,
     UserRoutingModule,
-    StoreModule.forFeature('user', {}),
+    StoreModule.forFeature('user', user),
     HttpClientModule
   ],
   declarations: [

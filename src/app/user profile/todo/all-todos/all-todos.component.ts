@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../Todo';
 import { Todo } from '../Todo';
 // import { colors } from 'src/app/user profile/main/calendar/colors';
 
@@ -33,7 +33,7 @@ export class AllTodosComponent implements OnInit{
         this.todoService.getAllTodos().subscribe(todos => {
             this.allTodos = todos;
             console.log('all todos: ', this.allTodos);
-            this.todoService.setTodos(todos);
+            this.todoService.setTodosInStore(todos);
         })
 
         

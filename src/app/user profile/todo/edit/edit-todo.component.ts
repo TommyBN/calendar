@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../Todo';
 
 @Component({
     templateUrl:'./edit-todo.component.html',
@@ -40,7 +40,8 @@ export class EditTodoComponent implements OnInit {
         this.route.paramMap.subscribe(params =>{
             this.id = params.get('id') ? +params.get('id') : 0;
             this.header = this.id == 0 ? "צור משימה חדשה" : `עדכן את"${this.todoForm.get('title')}"`
-        })
+        });
+        this.
     }
 
     // addRemove(){
@@ -48,10 +49,8 @@ export class EditTodoComponent implements OnInit {
     //     this.addRemoveText = this.addRemoveText == "הוסף משימות משנה" ? "הסתר משימות משנה" : "הוסף משימות משנה";
     // }
 
-    onSubmit() {
+    async onSubmit() {
         console.log('form: ',this.todoForm.value)
-        this.todoService.addTodo(this.todoForm.value).subscribe((message)=>{
-            console.log(message);
-        })
+        console.log(await this.todoService.addTodo(this.todoForm.value))
       }
 }
