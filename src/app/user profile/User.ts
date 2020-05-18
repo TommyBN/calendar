@@ -25,12 +25,14 @@ export function user(state, action){
 export class UserService{
 
     private url = 'http://localhost:8080/users';
-
+    public userId;
+    
     constructor ( 
         private http:HttpClient,
         private store: Store<any>) {}
 
     getUser(id): Observable<User>{
+        this.userId = id;
         return <Observable<User>>this.http.get(`${this.url}?id=${id}`)
     }
 

@@ -1,20 +1,22 @@
+<div (click)="toggleContent()" class="main">
+    <h4>{{todo.title}}&nbsp; <span>{{todo.event}}</span></h4>
+    <ng-content *ngIf="visible"></ng-content>
+</div>
 
+<!-- 
 <div class="container">
     <div class="general-buttons">
-        <!-- <a [routerLink]="['/todo']">חזרה</a> -->
         <a (click)="back()">חזרה</a>
         <button>ערוך&nbsp;<i class="fas fa-pencil-alt"></i></button>
     </div>
     
     
-    <div class="main"><!--for todo-->
-        <div class="header"><!---->
+    <div class="main">
+        <div class="header">
             <div id="path">
-                <h4>{{todo.path}} <i class="fas fa-chevron-left"></i> {{todo.title}} </h4> <!--FROM WHERE??-->
+                <h4>{{todo.path}} <i class="fas fa-chevron-left"></i> {{todo.title}} </h4> 
             </div>
-            <!-- <div id="event-date">
-                <h4>{{todo.event}}</h4>
-            </div> -->
+           
         </div>
         <h3>{{todo.title}} - משימות משנה:</h3>
         <div class="assignments">
@@ -24,4 +26,4 @@
     
     </div>
 </div>
-
+ -->

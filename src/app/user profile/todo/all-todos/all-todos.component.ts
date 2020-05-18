@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { TodoService } from '../Todo';
 import { Todo } from '../Todo';
+import { UserService } from '../../User';
+import { Location } from '@angular/common';
 // import { colors } from 'src/app/user profile/main/calendar/colors';
 
 @Component({
@@ -10,9 +12,13 @@ import { Todo } from '../Todo';
 })
 export class AllTodosComponent implements OnInit{
 
-    constructor ( private store:Store<any>, private todoService:TodoService ){}
+    constructor ( private store:Store<any>, 
+                  private todoService:TodoService,
+                  private userService:UserService,
+                  private location: Location 
+                ){}
 
-    allTodos:Todo[] = [
+    userTodos:Todo[] = [
         {
             description: "default todo",
             event: {
@@ -27,19 +33,22 @@ export class AllTodosComponent implements OnInit{
             secondaryTodos:[]
         }
     ];
-    numOfMissions:number;
 
     ngOnInit(){
-        this.todoService.getAllTodos().subscribe(todos => {
-            this.allTodos = todos;
-            console.log('all todos: ', this.allTodos);
+        this.todoService.getUserTodos(this.userService.userId).subscribe(todos => {
+            this.userTodos = todos;
             this.todoService.setTodosInStore(todos);
         })
-
-        
     }
 
-    
+    back(){
+        this.location.back()    
+    }
+
+
+
+        
+
 
 
   

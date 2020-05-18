@@ -2,10 +2,7 @@
 
  <div class="container">
     <div class="general-buttons">
-        <button [routerLink]="['/main']">ראשי</button>
-        <button [routerLink]="['/todo']">משימות</button>
-        <button [routerLink]="['/sports-and-hobbies']">ספורט ופנאי</button>
-        <button [routerLink]="['/personal-area']">איזור אישי</button>
+        <button [routerLink]="['../']">ראשי</button>
     </div>
     
     
@@ -16,10 +13,22 @@
             </div>
         </div>
         <h3>מטרות: </h3>
-        <div class="assignments">
-            <div class="assignment" *ngFor="let goal of goals" [routerLink]="['/goals', goal.id]"><h4>{{goal.title}}</h4></div>
+        <div class="assignment" *ngFor="let goal of userGoals"> 
+            <app-goal [goal]="goal">
+                <div goal-details>
+                    <h5>{{goal.path}}</h5><br>
+                    <h5>{{goal.description}}</h5>
+                </div>
+                <div goal-sec-goals *ngIf="goal.secondaryGoals">
+                    <h5>מטרות משנה:</h5>
+                    <div class="assignment" *ngFor="let sec of goal.secondaryGoals">
+                        <app-goal [goal]="sec"></app-goal>
+                    </div>
+                </div>
+            </app-goal>  
         </div>
-        <button [routerLink]="['/goals', 0, 'edit']" >הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
+
+        <button [routerLink]="['./0/edit']" >הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
 
     
     </div>

@@ -41,7 +41,6 @@ export class EditTodoComponent implements OnInit {
             this.id = params.get('id') ? +params.get('id') : 0;
             this.header = this.id == 0 ? "צור משימה חדשה" : `עדכן את"${this.todoForm.get('title')}"`
         });
-        this.
     }
 
     // addRemove(){

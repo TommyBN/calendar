@@ -59,11 +59,11 @@ export class EditGoalComponent implements OnInit {
 
     
 
-    onSubmit() {
-        console.log(this.goalForm.value);
-        // let goal = new Goal(...this.goalForm.value);
-        this.goalsService.addGoal(this.goalForm.value).subscribe((message)=>{
-            console.log(message);
-        })
-      }
+    // onSubmit() {
+    //     console.log(this.goalForm.value);
+    //     // let goal = new Goal(...this.goalForm.value);
+    //     this.goalsService.addGoal(this.goalForm.value).subscribe((message)=>{
+    //         console.log(message);
+    //     })
+    //   }
 }

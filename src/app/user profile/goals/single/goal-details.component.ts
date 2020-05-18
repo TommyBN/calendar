@@ -1,34 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { Goal } from '../Goal';
-import { GoalsService } from '../goals.service';
-import { Store, select } from '@ngrx/store';
-import { Location } from '@angular/common';
 
 @Component({
+    selector: 'app-goal',
     templateUrl:'./goal-details.component.html',
     styleUrls: ['../../../section.css']
 })
 export class GoalDetailsComponent implements OnInit{
 
-    currentGoal: Goal;
-    currentID: number;
-    goals: Goal[];
+    @Input() goal: Goal;
+    @Input() secondaryGoals: Goal[];
+    visible:boolean = false;
 
-    constructor( 
-        private router:Router, 
-        private route: ActivatedRoute,
-        private goalsService: GoalsService,
-        private store: Store<any>,
-        private location: Location
-    ){}
+    constructor(){}
 
-    ngOnInit(){
-        this.route.paramMap.subscribe(params => {
-            let id = +params.get('id');
-            
-        })
+    ngOnInit(){}
+
+    toggleContent(){
+        this.visible = !this.visible
     }
+
 
     // getGoalById(goals: Goal[], id:number):Goal{
     //     for(let goal of goals) {
@@ -39,7 +30,4 @@ export class GoalDetailsComponent implements OnInit{
     //     }
     // }
 
-    goBack(){
-        this.location.back();
-    }
 }

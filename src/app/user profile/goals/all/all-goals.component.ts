@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
 import { GoalsService } from '../goals.service';
 import { Goal } from '../Goal';
 import { Store } from '@ngrx/store';
+import { UserService } from '../../User';
 
 @Component({
     selector: 'all-goals-component',
@@ -12,22 +14,39 @@ export class AllGoalsComponent implements OnInit{
 
     goals: Goal[];
 
-    constructor ( 
-        private goalsService: GoalsService, 
-        private store:Store<any>,
-    ) {}
+    constructor ( private store:Store<any>, 
+        private goalsService:GoalsService,
+        private userService:UserService,
+        private location: Location 
+      ){}
 
-    ngOnInit(){
-     this.setGoals();
-    }
+userGoals:Goal[] = [
+{
+    id: 0, 
+    path: "goals", 
+    title: "fake goal", 
+    description: "for case...", 
+    event: {
+        title: 'Draggable event',
+        // color: colors.yellow,
+        start: new Date(),
+        draggable: true,
+    }, 
+    secondaryGoals: []
+}
+];
 
-    setGoals(){
-        this.goalsService.getAll().subscribe(goals => {
-            this.goals = goals;
-        });
-    }
+ngOnInit(){
+this.goalsService.getUserGoals(this.userService.userId).subscribe(goals => {
+  this.userGoals = goals;
+  this.goalsService.setGoalsInStore(goals);
+})
+}
 
-    
+back(){
+this.location.back()    
+}
+
 
 
 

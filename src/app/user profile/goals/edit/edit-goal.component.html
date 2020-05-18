@@ -1,53 +1,58 @@
-<div class="general-buttons">
-    <button [routerLink]="['../../']">חזרה</button>
-</div>
+<div id="main">
 
 
-<form [formGroup]="goalForm" >
-    
-    
-    <div class="container">
-
-    <h1>{{header}}</h1>
-
-    <label for="field">תחום:</label>
-    <input type="text" formControlName="field">
-
-    <label for="title">כותרת:</label>
-    <input type="text" formControlName="title">
-
-    <label for="description">תיאור:</label>
-    <input type="text" formControlName="description">
-
-
-
-
-        <button (click)="addRemove()">{{addRemoveText}}</button>
-        <div *ngIf="ShowWhenForm"  formGroupName="when">
-            <h4>יעדים:</h4>
-            <div class="formGroup">
-                <label for="destinationGeneral"> יעד כללי:</label>
-                <input type="text" formControlName="destinationGeneral">
-                <input type="date" formControlName="destinationGeneralDate">
-            </div>
-            <div class="formGroup">
-                <label for="destinationMonth"> יעד חודשי:</label>
-                <input type="text" formControlName="destinationMonth">
-                <input type="date" formControlName="destinationMonthDate">
-            </div>
-            <div class="formGroup">
-                <label for="destinationWeek"> יעד שבועי:</label>
-                <input type="text" formControlName="destinationWeek">
-                <input type="date" formControlName="destinationWeekDate">
-            </div>
-            <div class="formGroup">
-                <label for="destinationDay"> יעד יומי:</label>
-                <input type="text" formControlName="destinationDay">
-                <input type="date" formControlName="destinationDayDate">
-            </div>
-        </div>
-
-        <button (click)="onSubmit()" [disabled]="!goalForm.valid">צור</button>
-
+    <div class="general-buttons">
+        <button [routerLink]="['../../']">חזרה</button>
     </div>
-</form>
+
+
+    <form [formGroup]="goalForm" >
+        
+        
+        <div class="container">
+
+        <h1>{{header}}</h1>
+
+        <label for="field">תחום:</label>
+        <input type="text" formControlName="field">
+
+        <label for="title">כותרת:</label>
+        <input type="text" formControlName="title">
+
+        <label for="description">תיאור:</label>
+        <input type="text" formControlName="description">
+
+
+
+
+            <button (click)="addRemove()">{{addRemoveText}}</button>
+            <div *ngIf="ShowWhenForm"  formGroupName="when">
+                <h4>יעדים:</h4>
+                <div class="formGroup">
+                    <label for="destinationGeneral"> יעד כללי:</label>
+                    <input type="text" formControlName="destinationGeneral">
+                    <input type="date" formControlName="destinationGeneralDate">
+                </div>
+                <div class="formGroup">
+                    <label for="destinationMonth"> יעד חודשי:</label>
+                    <input type="text" formControlName="destinationMonth">
+                    <input type="date" formControlName="destinationMonthDate">
+                </div>
+                <div class="formGroup">
+                    <label for="destinationWeek"> יעד שבועי:</label>
+                    <input type="text" formControlName="destinationWeek">
+                    <input type="date" formControlName="destinationWeekDate">
+                </div>
+                <div class="formGroup">
+                    <label for="destinationDay"> יעד יומי:</label>
+                    <input type="text" formControlName="destinationDay">
+                    <input type="date" formControlName="destinationDayDate">
+                </div>
+            </div>
+
+            <button (click)="onSubmit()" [disabled]="!goalForm.valid">צור</button>
+
+        </div>
+    </form>
+
+</div>

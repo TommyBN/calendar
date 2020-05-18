@@ -1,4 +1,15 @@
+<div (click)="toggleContent()" class="main">
+    <h4>{{goal.title}}&nbsp;<span>{{goal.event}}</span></h4>
+    <div *ngIf="visible">
+        <ng-content select="[goal-details]"></ng-content>
+        <ng-content select="[goal-sec-goals]"></ng-content>
+    </div>
+</div>
 
+
+
+
+<!-- 
 
 <div class="container">
     
@@ -30,4 +41,4 @@
     </ul>
  
 
-</div>
+</div> -->
