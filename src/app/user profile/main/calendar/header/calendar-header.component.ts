@@ -11,6 +11,17 @@ import { CalendarView } from 'angular-calendar';
       font-size: 20px;
       margin: 8%;
     }
+
+    .container{
+      display: flex;
+      flex-direction: row;
+    }
+
+    h3{
+      font-size: 1.25em;
+      text-align: left;
+      display: inline-block }
+
     `
   ]
 })
