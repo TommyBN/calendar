@@ -13,6 +13,7 @@ import { UserService } from '../../User';
 export class AllGoalsComponent implements OnInit{
 
     goals: Goal[];
+    currentGoal:number;
 
     constructor ( private store:Store<any>, 
         private goalsService:GoalsService,
@@ -20,8 +21,7 @@ export class AllGoalsComponent implements OnInit{
         private location: Location 
       ){}
 
-userGoals:Goal[] = [
-{
+userGoals:Goal[] = [{
     id: 0, 
     path: "goals", 
     title: "fake goal", 
@@ -32,9 +32,8 @@ userGoals:Goal[] = [
         start: new Date(),
         draggable: true,
     }, 
-    secondaryGoals: []
-}
-];
+    subGoals: []
+}];
 
 ngOnInit(){
 this.goalsService.getUserGoals(this.userService.userId).subscribe(goals => {
@@ -47,7 +46,11 @@ back(){
 this.location.back()    
 }
 
-
+open(i){
+    // console.log(this)
+    this.currentGoal = this.currentGoal == i ? -1 : i
+    // this.currentGoal = i
+}
 
 
 }

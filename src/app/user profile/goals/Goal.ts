@@ -6,7 +6,7 @@ export interface Goal {
         title: string; 
         description: string; 
         event: CalendarEvent; 
-        secondaryGoals: Goal[]
+        subGoals: Goal[]
     
 }
 

@@ -1,20 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-
-
-/* kendo-splitter > kendo-splitter-bar {
-    width: 3% !important;
-  }
-  
-  kendo-splitter > kendo-splitter-bar > .k-collapse-prev {
-    background-color: cornflowerblue;
-    width: 100%;
-    height: 3%;
-  } */
   
   
   .cal-month-view .cal-header {
       text-align: center;
-      font-weight: bolder; }
+      /* font-weight: bolder;  */
+    }
     
     .cal-month-view .cal-header .cal-cell {
       padding: 5px 0;
@@ -123,7 +113,7 @@
       cursor: default; }
     
     .cal-month-view .cal-day-cell.cal-today .cal-day-number {
-      font-size: 1.9em; }
+      font-size: 5em; }
     
     .cal-month-view .cal-open-day-events {
       padding: 15px; }

@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarView } 
     from 'angular-calendar';
 import { colors } from './colors';
-import { TodoService } from '../../todo/todo.service';
+import { TodoService } from '../../todo/Todo';
 import { Store, select } from '@ngrx/store';
 
 @Component({

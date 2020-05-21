@@ -1,12 +1,23 @@
-<h1>Hello {{currentUser.name}}</h1>
-<button (click)="changeName()">Change name</button>
-<kendo-splitter>
-    <kendo-splitter-pane id="schedule" [collapsible]="true" min="40%">
-        <app-calendar></app-calendar>
-    </kendo-splitter-pane>
 
+<kendo-splitter>
+    <kendo-splitter-pane [collapsible]="true" min="40%">
+        <div id="calendar">
+            <app-calendar></app-calendar>
+        </div>
+    </kendo-splitter-pane>
     <kendo-splitter-pane size="50%" min="15%" [collapsible]="true">
-        <router-outlet></router-outlet>
+        <div id="main">
+            <div id="nav-bar">
+                <div id="welcome-back">
+                    <h5>Hello {{currentUser.name}}</h5>
+                    <button (click)="changeName()">Change name</button>
+                </div>
+                <div id="main-page">
+                    <button [routerLink]="['./']">עמוד ראשי</button>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
     </kendo-splitter-pane>
 </kendo-splitter>
 

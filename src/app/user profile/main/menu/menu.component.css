@@ -1,3 +1,5 @@
+* { font-family: 'Courier New', Courier, monospace }
+
 .container{
     display: flex;
     flex-direction: column;
@@ -17,7 +19,6 @@
 
 .mainDiv:hover{
     background-color: rgb(144, 35, 177);
-    cursor: pointer;
     color: azure;
 }
 .btn{

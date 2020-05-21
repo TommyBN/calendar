@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    template: './single-sport.component.html'
+    templateUrl: './single-sport.component.html',
+    styleUrls:['../../../section.css']
 })
 export class SingleSportComponent{
     sport;

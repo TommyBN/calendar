@@ -1,24 +1,27 @@
 
 <div class="container">
     <div class="general-buttons">
-        <a [routerLink]="['/todos']">חזרה</a>
-        <button>ערוך&nbsp;<i class="fas fa-pencil-alt"></i></button>
+        <button><a [routerLink]="['../']">  חזרה ל'ספורט ותחביבים'</a></button>
+        <!-- <button>ערוך&nbsp;<i class="fas fa-pencil-alt"></i></button> -->
     </div>
     
     
-    <div class="main"><!--for todo-->
-        <div class="header"><!---->
-            <div id="path">
-                {{todo.title}} <!--FROM WHERE??-->
+    <div class="main">
+        <div id="path">
+            <div id="path-title">
+                ספורט ותחביבים 
             </div>
-            <div id="event-date"><!---->
-                {{todo.event}}
+            <i class="fas fa-arrow-alt-circle-left">-</i> 
+            <div id="sport">
+                מדיטציה 
             </div>
         </div>
         <div class="assignments">
-            <h3>משימות משנה:</h3>
-            <div *ngFor="let secTodo of todo.secondaryTodos">{{secTodo}}</div>
-            <button>add secondary assignment</button>
+            <h3>יעדים: </h3>
+            <div *ngFor="let dest of sport.dests">
+                <h5>{{dest}}</h5>
+            </div>
+            <button>הוסף יעד</button>
         </div>
     
     </div>

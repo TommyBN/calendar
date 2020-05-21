@@ -1,44 +1,21 @@
-<div (click)="toggleContent()" class="main">
-    <h4>{{goal.title}}&nbsp;<span>{{goal.event}}</span></h4>
-    <div *ngIf="visible">
-        <ng-content select="[goal-details]"></ng-content>
-        <ng-content select="[goal-sec-goals]"></ng-content>
+<div class="goal-details">
+    <h5>{{goal.path}}</h5><br>
+    <h5>{{goal.description}}</h5>
+</div>
+
+<div class="goal-sec-goals" *ngIf="goal.subGoals">
+    <h5>מטרות משנה:</h5>
+    <div class="sub-assignment" 
+    *ngFor="let goal of goal.subGoals;let i = index"> 
+        <div class="main" >
+            <h4 (click)="open(i)">{{goal}}&nbsp;<span>{{goal.event}}</span></h4>
+            <app-goal [goal]="goal" *ngIf="currentSubGoal == i"  >
+            </app-goal>
+        </div>
     </div>
 </div>
 
+<button (click)="toggleEditForm()">{{editButtonText}}</button>
 
+<app-edit-goal *ngIf="showEditGoal"></app-edit-goal>
 
-
-<!-- 
-
-<div class="container">
-    
-    <div class="general-buttons">
-        <button (click)="goBack()">חזרה</button>
-    </div>
-
-
-
-    <div class="main">
-        <div id="path">
-            <h5>{{currentGoal.path}}</h5>&nbsp;
-            <i class="fas fa-chevron-left"></i>&nbsp;
-            <h5>{{currentGoal.title}}</h5>
-        </div>
-        <h5>תיאור: </h5><p>{{currentGoal.description}}</p>
-        <h5>יעד: </h5>
-        <h6>{{currentGoal.destination}}</h6>
-        <h4 *ngIf="currentGoal.when.whenGeneral">when: {{currentGoal.when.whenGeneral}}</h4>
-        <h4 *ngIf="currentGoal.when.whenDay">when: {{currentGoal.when.whenDay}}</h4>
-        <h4 *ngIf="currentGoal.when.whenWeek">when: {{currentGoal.when.whenWeek}}</h4>
-        <h4 *ngIf="currentGoal.when.whenMonth">when: {{currentGoal.when.whenMonth}}</h4>
-    </div>
-
-    
-    <h5>מטרות משנה:</h5>
-    <ul>
-        <li *ngFor="let secGoal of currentGoal.secondaryGoals" [routerLink]="['/goals', secGoal.id]">{{secGoal.title}}</li>
-    </ul>
- 
-
-</div> -->

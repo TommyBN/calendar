@@ -9,25 +9,26 @@ import { Goal } from '../Goal';
 export class GoalDetailsComponent implements OnInit{
 
     @Input() goal: Goal;
-    @Input() secondaryGoals: Goal[];
-    visible:boolean = false;
+    @Input() subGoals: Goal[];
+    currentSubGoal:number;
+    showEditGoal:boolean = false;
+    editButtonText:string = 'הוסף מטרת משנה';
 
     constructor(){}
 
-    ngOnInit(){}
-
-    toggleContent(){
-        this.visible = !this.visible
+    ngOnInit(){
+        console.log('goal: ',this.goal)
+    }
+    
+    open(i){
+        // console.log(this)
+        this.currentSubGoal = this.currentSubGoal == i ? -1 : i
+        // this.currentSubGoal = i
     }
 
-
-    // getGoalById(goals: Goal[], id:number):Goal{
-    //     for(let goal of goals) {
-    //         if(goal.id == id) return goal;
-    //     }
-    //     for(let goal of goals) {
-    //         return this.getGoalById(goal.secondaryGoals, id)
-    //     }
-    // }
+    toggleEditForm(){
+        this.showEditGoal = !this.showEditGoal;
+        this.editButtonText = this.editButtonText == 'סגור' ? 'הוסף מטרת משנה' : 'סגור'
+    }
 
 }

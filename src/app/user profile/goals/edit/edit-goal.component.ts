@@ -5,6 +5,7 @@ import { GoalsService } from '../goals.service';
 import { Goal } from '../Goal';
 
 @Component({
+    selector: 'app-edit-goal',
     templateUrl:'./edit-goal.component.html',
     styleUrls:['../../../form.css']
 })
@@ -22,16 +23,6 @@ export class EditGoalComponent implements OnInit {
         field: new FormControl('', Validators.required),
         event: new FormControl(''),
         secondaryGoals: new FormControl(''),
-        destination: new FormGroup({
-          destinationGeneral: new FormControl(''),
-          destinationGeneralDate: new FormControl(''),
-          destinationMonth: new FormControl(''),
-          destinationMonthDate: new FormControl(''),
-          destinationWeek: new FormControl(''),
-          destinationWeekDate: new FormControl(''),
-          destinationDay: new FormControl(''),
-          destinationDayDate: new FormControl('')
-        })
       });
 
 

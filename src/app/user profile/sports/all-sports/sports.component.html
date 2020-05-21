@@ -1,33 +1,30 @@
 
-
-
 <div class="container">
-    <div class="general-buttons">
-        <button [routerLink]="['/main']">ראשי</button>
-        <button [routerLink]="['/todo']">משימות</button>
-        <button [routerLink]="['/sports-and-hobbies']">ספורט ופנאי</button>
-        <button [routerLink]="['/personal-area']">איזור אישי</button>
-    </div>
-    
     
     <div class="main"><!--for todo-->
+
         <div class="header"><!---->
             <div id="path">
                 <h3> ספורט ותחביבים</h3>
             </div>
         </div>
+
         <div class="sport-assignments">
-            <div class="sports-div grid-item"><h1>מדיטציה</h1></div>
-            <div class=" grid-item"></div>
-            <div class=" grid-item"></div>
-            <div class="sports-div grid-item"><h1>ריצה</h1></div>
-            <div class="sports-div grid-item"><h1>טיולים</h1></div>
-            <div class=" grid-item"></div>
-            <div class=" grid-item"></div>
-            <div class="sports-div grid-item"><h1>נגינה על כינור</h1></div>
+            <div *ngFor="let sport of sports">
+                <div [routerLink]="['./sport.id']" [ngClass]="next()">
+                    <div>{{sport.title}}</div>
+                    <div>{{sport.title}}</div>
+                </div>
+            </div>
+            <div>
+                <div [ngClass]="next()">
+                    <div>הוסף תחום&nbsp;<i class="fas fa-plus"></i></div>
+                    <div>הוסף תחום&nbsp;<i class="fas fa-plus"></i></div>
+                </div>
+            </div>
         </div>
 
-        <button id="add">הוסף תחום&nbsp;<i class="fas fa-plus"></i></button>
     
     </div>
+
 </div>

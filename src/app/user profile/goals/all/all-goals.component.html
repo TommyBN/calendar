@@ -1,35 +1,29 @@
 
 
  <div class="container">
-    <div class="general-buttons">
-        <button [routerLink]="['../']">ראשי</button>
-    </div>
-    
     
     <div class="main">
+
         <div class="header">
             <div id="path">
                מטרות
             </div>
         </div>
-        <h3>מטרות: </h3>
-        <div class="assignment" *ngFor="let goal of userGoals"> 
-            <app-goal [goal]="goal">
-                <div goal-details>
-                    <h5>{{goal.path}}</h5><br>
-                    <h5>{{goal.description}}</h5>
+
+        <div class="goals" *ngIf="userGoals">
+            <h3>מטרות: </h3>
+            <div class="assignment" *ngFor="let goal of userGoals;let i = index"> 
+                <div class="main">
+                    <h4 (click)="open(i)">{{goal.title}}&nbsp;<span>{{goal.event}}</span></h4>
+                    <app-goal [goal]="goal" *ngIf="currentGoal == i"  >
+                    </app-goal>
                 </div>
-                <div goal-sec-goals *ngIf="goal.secondaryGoals">
-                    <h5>מטרות משנה:</h5>
-                    <div class="assignment" *ngFor="let sec of goal.secondaryGoals">
-                        <app-goal [goal]="sec"></app-goal>
-                    </div>
-                </div>
-            </app-goal>  
+                  
+            </div>
         </div>
 
         <button [routerLink]="['./0/edit']" >הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
-
     
     </div>
+
 </div>
