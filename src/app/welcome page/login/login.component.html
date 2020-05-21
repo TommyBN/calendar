@@ -1,16 +1,16 @@
 <div class="container">
     
-    <h4>Allready have an account?</h4><h4>Log in!</h4>
+    <h4>כניסה למשתמשים רשומים</h4>
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-input">
-                name: <br><input type="text" formControlName="username">
+                שם: <br><input type="text" formControlName="username">
             </div>
             <div class="form-input">
-                password: <br><input type="password" formControlName="password">
+                סיסמא: <br><input type="password" formControlName="password">
             </div>
             <div>
-                <button type="submit">Log In</button>
+                <button type="submit">כניסה</button>
             </div>
         </form>    
     </div>

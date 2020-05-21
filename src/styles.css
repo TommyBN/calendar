@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
   
   
+  input{ 
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-size: 22px;
+  }
+
   .cal-month-view .cal-header {
       text-align: center;
       /* font-weight: bolder;  */

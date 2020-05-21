@@ -12,6 +12,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
     #welcome-back { margin-top: 6%; margin-left: 4%;}
     #main-page { margin-top: 11%; margin-right: 12%;}
     #nav-bar { display: flex; flex-direction: row; justify-content: space-between}
+    button{ border-radius: 3px; cursor:default}
     // kendo-splitter-pane{ overflow:scroll}
     
   `]

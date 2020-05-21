@@ -1,7 +1,10 @@
 
+* { direction: rtl !important }
+
+h2{ text-align: center }
+
 .navbar{
     padding: 3%;
-    background-image: linear-gradient( black, white);
 }
 
 #referer{
@@ -17,8 +20,9 @@
 .referer:hover{ background-color: mediumpurple;}
 
 .container{
+    direction: rtl !important;
+    text-align: right;
     padding: 5%;
-    background-image: linear-gradient( blue, white);
     border-radius: 10%;
 }
 
@@ -39,3 +43,4 @@
     margin-top: 10%;
 }
 
+button{cursor: default;}
