@@ -10,8 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MenuComponent {
 
     modules = [
-        { name: 'משימות', route: 'todos' }, 
-        { name: 'מטרות', route: 'goals' },
+        { name: 'כללי', route: 'todos' }, 
+        { name: 'מה אני רוצה להשיג?', route: 'goals' },
         { name: 'ספורט ופנאי', route: 'sports'}, 
         { name: 'איזור אישי', route: 'personals'} 
     ];
