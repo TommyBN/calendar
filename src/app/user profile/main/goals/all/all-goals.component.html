@@ -1,0 +1,23 @@
+
+
+ <div class="container">
+    
+    <div class="main">
+
+        <div class="goals" *ngIf="userGoals">
+            <h5>(רצוי להגדיל את המסך..) </h5>
+            <div class="goal" *ngFor="let goal of userGoals;let i = index"> 
+                <div class="main">
+                    <h4 (click)="open(i)">{{goal.title}}&nbsp;<span>{{goal.event}}</span></h4>
+                    <app-goal [goal]="goal" *ngIf="currentGoal == i"  >
+                    </app-goal>
+                </div>
+                  
+            </div>
+        </div>
+
+        <button (click)="toggleAddGoal()">הוסף מטרה&nbsp;<i class="fas fa-plus"></i></button>
+        <app-add-goal *ngIf="showAddGoal"></app-add-goal>
+    </div>
+
+</div>

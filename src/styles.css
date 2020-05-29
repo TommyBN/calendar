@@ -2,9 +2,9 @@
   
   
   input{ 
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif;
     font-style: normal;
-    font-size: 22px;
+    font-size: 22px; */
   }
 
   .cal-month-view .cal-header {
@@ -101,6 +101,7 @@
       display: -ms-flexbox;
       -js-display: flex;
       display: flex;
+      flex-direction: column;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
     
@@ -120,6 +121,8 @@
     
     .cal-month-view .cal-day-cell.cal-today .cal-day-number {
       font-size: 5em;}
+
+      .cal-open-day-events{display: none;}
     
     .cal-month-view .cal-open-day-events {
       padding: 15px; }
@@ -160,7 +163,7 @@
         background-color: #b94a48;
         color: #fff; }
       .cal-month-view .cal-event {
-        background-color: #3d464e;
+        background-color: #1786e7;
         border-color: #d1e8ff;
         color: #fff; }
       .cal-month-view .cal-day-cell.cal-weekend .cal-day-number {

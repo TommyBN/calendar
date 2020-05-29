@@ -1,6 +1,16 @@
 <div class="container">
 
-    <div class="mainDiv" *ngFor="let module of modules" 
+    <div class="mainDiv" >
+        <h1 class="todoHeader" (click)="toggleTodos()">שוטף</h1>
+        <app-todos *ngIf="showTodos"></app-todos>
+    </div>
+
+    <div class="mainDiv" >
+        <h1 (click)="toggleGoals()">מטרות</h1>
+        <app-goals *ngIf="showGoals"></app-goals>
+    </div>
+
+    <div class="circle" *ngFor="let module of modules" 
     (click)="gotoModule(module.route)">
         <h1>{{module.name}}</h1>
     </div>

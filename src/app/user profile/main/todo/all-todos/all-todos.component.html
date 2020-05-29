@@ -1,0 +1,12 @@
+
+
+<div class="container">
+    <div class="main">
+        <div class="todo" *ngFor="let todo of userTodos"> 
+            <span (click)="deleteTodo(todo._id)">delete</span>
+            <input type="checkbox" name="" id="">&nbsp;&nbsp;{{todo.title}}
+        </div>
+        <button (click)="toggleAddForm()" >הוסף משימה&nbsp;<i class="fas fa-plus"></i></button>
+        <app-add-todo *ngIf="showAddForm" (emitTodo)="submitNewTodo($event)"></app-add-todo>
+    </div>
+</div>

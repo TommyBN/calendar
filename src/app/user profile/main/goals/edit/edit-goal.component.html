@@ -1,0 +1,17 @@
+<div id="main">
+    <form (ngSubmit)="onSubmit()" #newGoal="ngForm">
+        <div class="container">
+            <div class="form-group">
+                <label for="title">מה אני רוצה להשיג?</label>
+                <input type="text" [(ngModel)]="newGoal.title" 
+                    class="form-control" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="start">עד מתי?</label>
+                <input type="datetime-local" [(ngModel)]="newGoal.start" class="form-control" 
+                    id="start" required>
+            </div>
+            <button type="submit" [disabled]="!goalForm.valid">הוסף</button>
+        </div>
+    </form>
+</div>

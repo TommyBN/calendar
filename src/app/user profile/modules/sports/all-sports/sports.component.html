@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div id="nav-bar">
+        <div id="main-page">
+            <button [routerLink]="['../../../']">עמוד ראשי</button>
+        </div>    
+    </div>
+    <div class="main"><!--for todo-->
+
+        <div class="header"><!---->
+            <div id="path">
+                <h3> ספורט ותחביבים</h3>
+            </div>
+        </div>
+
+        <div class="sport-assignments">
+            <div *ngFor="let sport of sports">
+                <div [routerLink]="['./sport.id']" [ngClass]="next()">
+                    <div>{{sport.title}}</div>
+                    <div>{{sport.title}}</div>
+                </div>
+            </div>
+            <div>
+                <div [ngClass]="next()">
+                    <div>הוסף תחום&nbsp;<i class="fas fa-plus"></i></div>
+                    <div>הוסף תחום&nbsp;<i class="fas fa-plus"></i></div>
+                </div>
+            </div>
+        </div>
+
+    
+    </div>
+
+</div>

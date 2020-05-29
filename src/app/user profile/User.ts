@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Store, select } from '@ngrx/store';
+import { CalendarEvent } from 'angular-calendar';
 
 export interface User {
     _id: string;
@@ -16,6 +17,21 @@ export function user(state, action){
                 ...state,
                 currentUser: action.payload
             }
+        case 'set-events':
+            return {
+                ...state,
+                events: action.payload
+            }
+        case 'set-todos':
+            return {
+                ...state,
+                todos: action.payload
+            }
+        case 'set-goals':
+            return {
+                ...state,
+                goals: action.payload
+            }
         default:  
             return state;
     }
@@ -24,7 +40,8 @@ export function user(state, action){
 @Injectable()
 export class UserService{
 
-    private url = 'http://localhost:8080/users';
+    private usersUrl = 'http://localhost:8080/users';
+    private eventsUrl = 'http://localhost:8080/events';
     public userId;
     
     constructor ( 
@@ -33,7 +50,7 @@ export class UserService{
 
     getUser(id): Observable<User>{
         this.userId = id;
-        return <Observable<User>>this.http.get(`${this.url}?id=${id}`)
+        return <Observable<User>>this.http.get(`${this.usersUrl}?id=${id}`)
     }
 
     setUserInStore(user){
@@ -42,7 +59,19 @@ export class UserService{
                 payload: user
             })
     }
+    
+    getUserEvents():Observable<CalendarEvent[]>{
+        return <Observable<CalendarEvent[]>> this.http.get(`${this.eventsUrl}?id=${this.userId}`); 
+    }
 
+    setUserEventsInStore(){
+        this.getUserEvents().subscribe(events=>{
+            this.store.dispatch({
+                type:'set-events',
+                payload: events
+            })
+        })    
+    }
  
 
 }

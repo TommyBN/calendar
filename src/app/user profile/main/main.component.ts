@@ -5,17 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     templateUrl: './main.component.html',
-    styles: [`
-    .container { padding: 3% } 
-    #calendar { padding: 5%; overflow: auto }
-    #main { height: 700px; padding: 0; overflow: scroll }
-    #welcome-back { margin-top: 6%; margin-left: 4%;}
-    #main-page { margin-top: 11%; margin-right: 12%;}
-    #nav-bar { display: flex; flex-direction: row; justify-content: space-between}
-    button{ border-radius: 3px; cursor:default}
-    // kendo-splitter-pane{ overflow:scroll}
-    
-  `]
+    styleUrls: ['./main.component.css']
 })
 
 export class MainComponent implements OnInit {
@@ -47,10 +37,6 @@ export class MainComponent implements OnInit {
         this.userService.setUserInStore(this.currentUser);
       })
     })
-  }
-
-  changeName(){
-    this.currentUser.name = "Mohammad"
   }
 
 }

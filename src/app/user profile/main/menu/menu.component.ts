@@ -9,18 +9,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class MenuComponent {
 
+    showTodos: boolean = true;
+    showGoals: boolean = false;
     modules = [
-        { name: 'כללי', route: 'todos' }, 
-        { name: 'מה אני רוצה להשיג?', route: 'goals' },
         { name: 'ספורט ופנאי', route: 'sports'}, 
         { name: 'איזור אישי', route: 'personals'} 
     ];
 
     constructor(private router: Router, private actRout:ActivatedRoute){}
 
+    toggleTodos(){
+        this.showTodos = !this.showTodos
+    }
+
+    toggleGoals(){
+        this.showGoals = !this.showGoals
+    }
 
     gotoModule(route) {
-        console.log(this.actRout)
         this.router.navigate([`../${route}`], { relativeTo: this.actRout });
       }
 

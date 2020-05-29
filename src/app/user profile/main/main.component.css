@@ -1,0 +1,38 @@
+
+.container { 
+    padding: 3% 
+}
+
+#calendar {
+    height: 600px; 
+    padding: 5%; 
+    overflow: scroll 
+}
+
+#main { 
+    height: 600px; 
+    padding: 0; 
+    overflow: scroll 
+}
+
+#welcome-back { 
+    margin-top: 6%; 
+    margin-right: 20%;
+}
+
+#main-page { 
+    margin-top: 11%; 
+    margin-right: 12%;
+}
+
+#nav-bar { 
+    direction: rtl;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between
+}
+
+button{ 
+    border-radius: 3px; 
+    cursor:default
+}

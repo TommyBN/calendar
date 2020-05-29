@@ -1,4 +1,4 @@
-* { font-family: 'Courier New', Courier, monospace;
+* { 
     text-align: right;
 direction: rtl; }
 
@@ -19,10 +19,29 @@ direction: rtl; }
     font-family: monospace;
 }
 
-.mainDiv:hover{
-    background-color: rgb(144, 35, 177);
-    color: azure;
+.mainDiv > h1 { 
+    font-family: 'Courier New', Courier, monospace;
 }
+
+.circle{
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid rgb(144, 35, 177);
+    height: 25%;
+    width: 90%;
+    margin: 5%;
+    padding: 20%;
+    text-align: right;
+}
+
+.circle > h1 {
+    font-family: fantasy;
+}
+
 .btn{
     width: 10%;
+}
+
+.todoHeader{
+    text-decoration: underline;
 }

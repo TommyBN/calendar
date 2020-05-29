@@ -8,6 +8,7 @@
     padding:5%;
     text-align: right;
 }
+
 .general-buttons{
     display:flex;
     flex-direction: row;
@@ -52,17 +53,16 @@ h5{
     margin: 5%;
 }
 
-.assignment, .sub-assignment{
+.todo{
+    padding: 5%;
+}
+
+.goal, .sub-goal{
     border: 2px solid rgb(124, 90, 245);
     border-radius: 10%;
     width: 100%;
     margin: 2%;
     padding: 1%;
-    /* cursor: pointer; */
-}
-
-.assignment:hover, .sub-assignment:hover{
-    background-color: rgb(124, 90, 245);
 }
 
 

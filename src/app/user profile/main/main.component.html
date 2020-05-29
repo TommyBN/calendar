@@ -7,13 +7,10 @@
     </kendo-splitter-pane>
     <kendo-splitter-pane min="15%" [collapsible]="true">
         <div id="main">
+            <br><br><br><br><br>
             <div id="nav-bar">
                 <div id="welcome-back">
-                    <h5>Hello {{currentUser.name}}</h5>
-                    <button (click)="changeName()">Change name</button>
-                </div>
-                <div id="main-page">
-                    <button [routerLink]="['./']">עמוד ראשי</button>
+                    <h5> {{currentUser.name}}, ברוך שובך</h5>
                 </div>
             </div>
             <router-outlet></router-outlet>
