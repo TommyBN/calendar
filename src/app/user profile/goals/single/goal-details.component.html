@@ -1,0 +1,30 @@
+
+
+    <h5>כדי להשיג את זה אני צריך ל:</h5>
+    <div class="missions">
+        <div class="goal-sec-goals" *ngIf="goal.subGoals">
+            <h5>מטרות:</h5>
+            <div class="sub-goal" 
+                *ngFor="let goal of goal.subGoals;let i = index"> 
+                <div class="main" >
+                    <h4 (click)="open(i)">{{goal.title}}&nbsp;</h4>
+                    <app-goal [goal]="goal" *ngIf="currentSubGoal == i"  >
+                    </app-goal>
+                </div>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="goal-todos" *ngIf="goal.todos">
+            <h5>משימות:</h5>
+            <div class="todo" 
+                *ngFor="let todo of goal.todos;let i = index"> 
+                <span>&#10036;&nbsp;</span>{{todo.title}}
+            </div>
+        </div>
+    </div>
+    <button (click)="toggleEditForm()">הוסף מטרה&nbsp;&#43;</button>&nbsp;&nbsp;&nbsp;
+    <button (click)="toggleAddTodo()">הוסף משימה&nbsp;&#43;</button>
+    <app-add-goal (goalSubmit)="saveSubGoal($event)" class="add" *ngIf="showEditGoal"></app-add-goal>
+    <app-add-todo *ngIf="showAddTodo" (emitTodo)="saveTodo($event)"></app-add-todo>
+<!-- <button (click)="toggleAddGoal()">הוסף מטרה&nbsp;&#43;</button> -->
+
+

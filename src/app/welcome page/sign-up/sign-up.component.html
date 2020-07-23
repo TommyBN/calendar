@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h3>הרשמה</h3>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="form-input">
+            שם משתמש:
+            <br><input type="text" formControlName="username">
+        </div>
+        <div class="form-input">
+            סיסמא: 
+            <br><input type="password" formControlName="password">
+        </div>
+        <div class="form-input">
+            אשר סיסמא: 
+            <br><input type="passwordConfirmation" formControlName="passwordConfirmation">
+        </div>
+        <div>
+            <button type="submit">הרשם</button>
+        </div>
+    </form>    
+</div>

@@ -1,0 +1,28 @@
+
+<div class="container">
+    <div class="general-buttons">
+        <button><a [routerLink]="['../']">  חזרה ל'ספורט ותחביבים'</a></button>
+        <!-- <button>ערוך&nbsp;<i class="fas fa-pencil-alt"></i></button> -->
+    </div>
+    
+    
+    <div class="main">
+        <div id="path">
+            <div id="path-title">
+                ספורט ותחביבים 
+            </div>
+            <i class="fas fa-arrow-alt-circle-left">-</i> 
+            <div id="sport">
+                מדיטציה 
+            </div>
+        </div>
+        <div class="assignments">
+            <h3>יעדים: </h3>
+            <div *ngFor="let dest of sport.dests">
+                <h5>{{dest}}</h5>
+            </div>
+            <button>הוסף יעד</button>
+        </div>
+    
+    </div>
+</div>

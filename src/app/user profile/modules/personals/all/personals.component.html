@@ -1,0 +1,55 @@
+
+
+<div class="container"  *ngIf="!questionHasBeenAnswered">
+    <div class="question">
+        <p>
+            האם אתה הורה ? 
+        </p>
+    </div>
+    <div class="answers">
+        <div (click)="openNoModal()" class="answer">
+            <p>לא</p>
+        </div>
+        <div (click)="openYesModal()" class="answer">
+            <p>כן</p>
+        </div>        
+    </div> 
+</div>
+
+<div *ngIf="questionHasBeenAnswered">
+    <div>
+        <h1>{{message}}</h1>
+    </div>
+    <div class="answers">
+        <button [routerLink]="['../../../']">Back To Main Page</button>
+    </div> 
+</div>
+
+<!--
+
+<div class="container">
+
+    <div class="general-buttons">
+        <button [routerLink]="['/main']">ראשי</button>
+        <button [routerLink]="['/todo']">משימות</button>
+        <button [routerLink]="['/sports-and-hobbies']">ספורט ופנאי</button>
+        <button [routerLink]="['/personal-area']">איזור אישי</button>
+    </div>      
+    
+    <div class="main">
+        <div class="header">
+            <div id="path">
+                <h3> איזור אישי</h3>
+            </div>
+        </div>
+        <div class="assignments">
+            <div class="sports-div">משפחה</div>
+            <div class="sports-div">זוגיות</div>
+            <div class="sports-div">אישי</div>
+        </div>
+        <button id="add">הוסף תחום&nbsp;<i class="fas fa-plus"></i></button>
+    
+    </div>
+</div>
+
+-->

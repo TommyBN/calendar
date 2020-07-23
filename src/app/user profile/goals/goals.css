@@ -1,0 +1,32 @@
+
+
+button{
+  cursor: default;
+  border-radius: 3px;
+  /* width: fit-content; */
+  height: fit-content;
+}
+button:hover { background-color: rgb(117, 113, 107) }
+
+h4{ text-decoration: underline;}
+
+.goals{
+    display: flex;
+    flex-direction: column;
+}
+
+.goal, .sub-goal{
+  border-radius: 10%;
+  border: 2px solid rgb(124, 90, 245);
+  width: 100%;
+  margin: 10px;
+  padding: 10%;
+  text-align: center;
+}
+
+.missions{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+

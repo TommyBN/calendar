@@ -1,0 +1,10 @@
+ <div class="container">
+    <div class="goals" *ngIf="userGoals">
+        <div class="goal" *ngFor="let goal of userGoals;let i = index"> 
+                <h4 (click)="open(i)">{{goal.title}}&nbsp;</h4>
+                <app-goal [goal]="goal" *ngIf="currentGoalIndex == i"></app-goal>
+        </div>
+    </div>
+    <button (click)="toggleAddGoal()">הוסף מטרה&nbsp;&#43;</button>&nbsp;&nbsp;&nbsp;
+    <app-add-goal class="add-goal" *ngIf="showAddGoal" (goalSubmit)="saveGoal($event)"></app-add-goal>
+</div>

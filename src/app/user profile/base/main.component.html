@@ -1,0 +1,20 @@
+
+<kendo-splitter>
+    <kendo-splitter-pane [collapsible]="true" size="60%" min="40%">
+        <div id="calendar">
+            <app-calendar></app-calendar>
+        </div>
+    </kendo-splitter-pane>
+    <kendo-splitter-pane min="15%" [collapsible]="true">
+        <div id="main">
+            <br><br><br><br><br>
+            <div id="nav-bar">
+                <div id="welcome-back">
+                    <!-- <h5> {{currentUser.name}}, ברוך שובך</h5> -->
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </kendo-splitter-pane>
+</kendo-splitter>
+
