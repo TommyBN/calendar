@@ -8,7 +8,7 @@ import { UserService } from "../user.service";
 export interface Todo {
     user_id: string,
     title: string,
-    event: CalendarEvent,
+    event_id: string,
 }
 
 @Injectable()

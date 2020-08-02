@@ -30,4 +30,8 @@ import { Todo } from '../todo/todo.service';
     createEventFromTodo(todo: Todo) {
 
     }
+
+    getGoalEvent(event_id):Observable<CalendarEvent> {
+        return <Observable<CalendarEvent>> this.http.get(`${this.url}/${event_id}`);
+    }
 }

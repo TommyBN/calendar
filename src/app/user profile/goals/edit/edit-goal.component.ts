@@ -14,19 +14,19 @@ export class EditGoalComponent implements OnInit {
   
     @Output() goalSubmit:EventEmitter<Goal> = new EventEmitter<Goal>();
    
-    private event:CalendarEvent = { title: '', start: new Date() }
-    private newGoal: Goal = { 
-        user_id: this.userService.userId, 
-        title: '', event_id: ''
-    }
+    private event:CalendarEvent;
+    private newGoal: Goal;
 
     constructor(private userService: UserService, 
                 private eventsService: EventsService) {}
     
-    ngOnInit(){}
+    ngOnInit(){
+        this.newGoal.user_id = this.userService.userId
+    }
 
     async onSubmit() {
         //create event
+        debugger
         this.event.title = this.newGoal.title;
         this.event.color = "yellow";
         this.event.start = await moment(this.event.start).toDate();
@@ -37,7 +37,8 @@ export class EditGoalComponent implements OnInit {
         this.eventsService.saveEvent(body).subscribe(
             eventID => {
                 this.newGoal.event_id = eventID;
-                console.log(this.newGoal.event_id)
+                console.log('new goal: ',this.newGoal)
+                //save goal
                 this.goalSubmit.emit(this.newGoal);
             }
         )

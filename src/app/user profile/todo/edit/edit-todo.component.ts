@@ -3,6 +3,7 @@ import { Todo } from '../todo.service';
 import { CalendarEvent } from 'angular-calendar';
 import { UserService } from 'src/app/user profile/user.service';
 import * as moment from 'moment';
+import { EventsService } from '../../calendar/events.service';
 
 @Component({
     selector: 'app-add-todo',
@@ -21,18 +22,26 @@ export class EditTodoComponent implements OnInit {
         draggable: true
     };
     
-    constructor(private userService: UserService) { }
+    constructor(
+        private userService: UserService,
+        private eventsService: EventsService) { }
 
     ngOnInit() { }
 
     async onSubmit() {
-        this.newTodoEvent.start = await moment(this.newTodoEndDate).toDate();
         this.newTodo = {
             user_id: this.userService.userId,
             title: this.newTodoTitle,
-            event: this.newTodoEvent
+            event_id: ''
         }
-        this.emitTodo.emit(this.newTodo);
+        this.newTodoEvent.start = await moment(this.newTodoEndDate).toDate();
+        this.eventsService.saveEvent(this.newTodoEvent).subscribe(
+            eventID => {
+                this.newTodo.event_id = eventID;  
+                this.emitTodo.emit(this.newTodo);
+            }
+        )
     }
 
 }
+

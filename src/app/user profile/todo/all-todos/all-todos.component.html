@@ -11,7 +11,7 @@
                     (click)="currentTodoToDelete = i">&#10007;
                 </span>
                 <span *ngIf="!showDeleteIcon">&#10036;&nbsp;</span>
-                    {{todo.title}}
+                    <span (click)="showTodo(todo.event._id)">{{todo.title}}</span>
                 <span class="clickable" (click)="openEditForm(i)">&#9998;</span>
                 <div class="deleteTodo" *ngIf="currentTodoToDelete == i">האם למחוק את המטלה? 
                     <button class="deleteTodo" (click)="deleteTodo(todo._id)">מחק</button>

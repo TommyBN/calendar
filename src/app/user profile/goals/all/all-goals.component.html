@@ -1,7 +1,7 @@
  <div class="container">
     <div class="goals" *ngIf="userGoals">
         <div class="goal" *ngFor="let goal of userGoals;let i = index"> 
-                <h4 (click)="open(i)">{{goal.title}}&nbsp;</h4>
+                <h4 (click)="open(i)" [ngStyle]="goal.done ? 'text-decoration: underline' : ''">{{goal.title}}&nbsp;</h4>
                 <app-goal [goal]="goal" *ngIf="currentGoalIndex == i"></app-goal>
         </div>
     </div>

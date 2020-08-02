@@ -30,3 +30,11 @@ h4{ text-decoration: underline;}
   justify-content: space-between;
 }
 
+.goal-is-done-button {
+  color: green;
+  margin-top: 20px;
+}
+
+.goal-is-done-modal {
+  border: 1px solid black;
+}

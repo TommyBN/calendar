@@ -32,7 +32,7 @@ this.goalsService.getUserGoals(this.userService.userId).subscribe(goals => {
 
 saveGoal(goal:Goal){
     this.goalsService.addGoal(goal);
-    this.ngOnInit();
+    setTimeout(()=>this.ngOnInit(), 1000);
 }
 
 

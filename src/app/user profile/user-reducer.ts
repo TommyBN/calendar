@@ -1,5 +1,3 @@
-import { AsyncAction } from "rxjs/internal/scheduler/AsyncAction";
-
 
 
 export function user(state, action) {
@@ -31,6 +29,13 @@ export function events(state, action) {
     }
 }
 
+export function currentDay(state, action){
+    return {
+        ...state,
+        currentDay: action.payload
+    }
+}
+
 export function todos(state, action) {
     switch (action.type) {
         case 'set-todos':
@@ -53,8 +58,12 @@ export function goals(state, action) {
         case 'current-goal':
             return {
                 ...state,
-                currentGaol: action.payload
+                currentGoal: action.payload
             }
         default: return state;
         }
+}
+
+export function currentGoal (state, action) {
+    return action.payload;
 }

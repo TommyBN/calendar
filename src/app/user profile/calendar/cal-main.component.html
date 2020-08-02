@@ -1,0 +1,11 @@
+<div class="container">
+    <div id="day" *ngIf="viewDay">
+        <app-cal-day></app-cal-day>
+    </div>
+    <div id="event" *ngIf="viewEvent">
+        <app-event></app-event>
+    </div>
+    <div id="month" *ngIf="viewMonth">
+        <app-cal-month></app-cal-month>
+    </div>
+</div>

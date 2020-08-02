@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Goal } from '../Goal';
 import { TodoService, Todo } from '../../todo/todo.service';
 import { GoalsService } from '../goals.service';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-goal',
@@ -16,14 +17,20 @@ export class GoalDetailsComponent implements OnInit{
     showEditGoal:boolean = false;
     showAddTodo: boolean = false;
     editButtonText:string = 'הוסף מטרת משנה';
+    done: boolean = false;
 
     constructor(
         private todoService: TodoService,
-        private goalService: GoalsService    
+        private goalService: GoalsService,
+        private store: Store<any>    
     ){}
 
     ngOnInit(){
-        console.log('goal: ',this.goal)
+        console.log('goal: ',this.goal);
+        this.store.dispatch({
+            type: 'current-goal',
+            action: this.goal
+        })
     }
     
     open(i){
@@ -44,10 +51,18 @@ export class GoalDetailsComponent implements OnInit{
         setTimeout(()=>this.ngOnInit(),1000);
     }
 
-    saveSubGoal(goal:Goal){
-        this.goalService.addSubGoal(goal, this.goal._id);        
-        setTimeout(()=>this.ngOnInit(),1000);
+    saveSubGoal(subGoal:Goal){
+        this.goalService.addSubGoal(subGoal, this.goal._id);        
+        setTimeout(()=>this.ngOnInit(),3000);
         this.showAddTodo = false;
     }
 
+
+    doSomething() {
+        this.done = true;
+    }
+
+    deleteGoal() {
+     this.goalService.deleteGoal(this.goal._id).subscribe(message => console.log(message))   
+    }
 }

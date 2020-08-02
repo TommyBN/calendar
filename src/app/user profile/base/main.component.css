@@ -3,12 +3,16 @@
     padding: 3% 
 }
 
+.k-icon, .k-collapse-prev, .k-i-arrow-60-left  {
+    width: 1px !important;
+    cursor: progress;
+}
+
 #calendar {
     height: 600px; 
     padding: 5%; 
     overflow: scroll;
-    /* cursor: help; */
-    cursor: url('../../../assets/running-resizeimage.png'), auto; 
+    /* cursor: url('../../../assets/running-resizeimage.png'), auto;  */
 }
 
 #main { 

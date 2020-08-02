@@ -60,10 +60,10 @@ import { Todo } from '../todo/todo.service';
         })
     }
 
-    async addSubGoal(goal, goalId: string){
+    async addSubGoal(subGoal:Goal, goalId: string){
         let body = {
             type: 'goal',
-            goal: goal,
+            goal: subGoal,
             userId: this.userService.userId
         }
 
@@ -71,5 +71,13 @@ import { Todo } from '../todo/todo.service';
             console.log('response: ',response)
         })
     }
-  
+ 
+    deleteGoal(goalID) {
+        console.log('goal id: ',goalID)
+        return this.http.delete(`${this.url}/${goalID}`);
+    }
+
+    
+    
+
 }

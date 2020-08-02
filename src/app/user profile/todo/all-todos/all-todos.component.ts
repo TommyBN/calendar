@@ -35,6 +35,10 @@ export class AllTodosComponent implements OnInit{
         })
     }
 
+    showTodo(eventID) {
+        console.log(eventID)
+    }
+
     toggleAddForm(){
         this.viewAddForm = !this.viewAddForm
     }

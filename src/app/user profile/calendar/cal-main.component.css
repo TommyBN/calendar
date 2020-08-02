@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   }
+
+   #day {
+       border: 1px solid springgreen;
+   }
+
+   #event {
+       border: 1px solid steelblue;
+   }
+
+   #month {
+       border: 1px solid salmon;
+   }

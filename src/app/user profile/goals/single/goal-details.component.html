@@ -1,11 +1,11 @@
 
-
+<div *ngIf="!done">
     <h5>כדי להשיג את זה אני צריך ל:</h5>
     <div class="missions">
         <div class="goal-sec-goals" *ngIf="goal.subGoals">
             <h5>מטרות:</h5>
             <div class="sub-goal" 
-                *ngFor="let goal of goal.subGoals;let i = index"> 
+            *ngFor="let goal of goal.subGoals;let i = index"> 
                 <div class="main" >
                     <h4 (click)="open(i)">{{goal.title}}&nbsp;</h4>
                     <app-goal [goal]="goal" *ngIf="currentSubGoal == i"  >
@@ -22,9 +22,23 @@
         </div>
     </div>
     <button (click)="toggleEditForm()">הוסף מטרה&nbsp;&#43;</button>&nbsp;&nbsp;&nbsp;
-    <button (click)="toggleAddTodo()">הוסף משימה&nbsp;&#43;</button>
+    <button (click)="toggleAddTodo()">הוסף משימה&nbsp;&#43;</button><br>
+    <button (click)="doSomething()" class="goal-is-done-button">בוצע&#10004;</button>
     <app-add-goal (goalSubmit)="saveSubGoal($event)" class="add" *ngIf="showEditGoal"></app-add-goal>
     <app-add-todo *ngIf="showAddTodo" (emitTodo)="saveTodo($event)"></app-add-todo>
-<!-- <button (click)="toggleAddGoal()">הוסף מטרה&nbsp;&#43;</button> -->
+    <!-- <button (click)="toggleAddGoal()">הוסף מטרה&nbsp;&#43;</button> -->
+    
+    
+</div>    
 
 
+<div *ngIf="done" class="goal-is-done-modal">
+    <div style="color:blue; font-size: 35px">
+        כל הכבוד! סיימת את מה שהצבת לעצמך! 
+    </div><br><br><br><br>
+    <div>
+        האם ברצונך למחוק את המטרה מלוח המטרות ומהיומן?
+    </div> 
+    <button (click)="deleteGoal()">סיימתי! מחק מטרה</button>
+    <button>בוא נחכה קצת ונוודא שאכן המטרה בוצעה...</button>
+</div>

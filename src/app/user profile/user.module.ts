@@ -9,9 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserRoutingModule } from './user-routing.module';
 import { MenuComponent } from './base/menu/menu.component';
 import { MainComponent } from './base/main.component';
-import { CalendarComponent } from './calendar/calendar.component'
+import { CalendarMainComponent } from './calendar/cal-main.component'
 import { CalendarHeaderComponent } from './calendar/month/header/calendar-header.component';
-import { user, events, todos, goals } from './user-reducer';
+import { CalendarDayComponent } from './calendar/day/cal-day.component'
+import { CalendarMonthComponent } from './calendar/month/cal-month.component'
+import { user, events, todos, goals, currentDay, currentGoal } from './user-reducer';
 import { UserService} from './user.service';
 import { TodoService } from './todo/todo.service';
 import { EditTodoComponent } from './todo/edit/edit-todo.component';
@@ -22,6 +24,7 @@ import { GoalDetailsComponent } from './goals/single/goal-details.component';
 import { EditGoalComponent } from './goals/edit/edit-goal.component';
 import { GoalsService } from './goals/goals.service';
 import { EventsService } from './calendar/events.service';
+import { EventComponent } from './calendar/event/event.component';
 
 @NgModule({
   imports: [
@@ -36,6 +39,8 @@ import { EventsService } from './calendar/events.service';
     StoreModule.forFeature('events', events),
     StoreModule.forFeature('todos', todos),
     StoreModule.forFeature('goals', goals),
+    StoreModule.forFeature('current-day', currentDay),
+    StoreModule.forFeature('current-goal', currentGoal),
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
@@ -43,13 +48,16 @@ import { EventsService } from './calendar/events.service';
   declarations: [
     MainComponent,
     MenuComponent,
-    CalendarComponent,
+    CalendarMainComponent,
     CalendarHeaderComponent,
+    CalendarDayComponent,
+    CalendarMonthComponent,
+    EventComponent,
     AllTodosComponent,
     EditTodoComponent,
     AllGoalsComponent,
     GoalDetailsComponent,
-    EditGoalComponent
+    EditGoalComponent,
   ],
   providers:[
     UserService,

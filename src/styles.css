@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-kendo-splitter > kendo-splitter-bar {
+/* kendo-splitter > kendo-splitter-bar {
     width: 3% !important;
-  }
+  } */
   
-  kendo-splitter > kendo-splitter-bar > .k-collapse-prev {
+  /* kendo-splitter > kendo-splitter-bar > .k-collapse-prev {
     background-color: cornflowerblue;
     width: 100%;
     height: 3%;
-  }
+  } */
   
   
   .cal-month-view .cal-header {

@@ -4,15 +4,16 @@ import { CalendarEvent, CalendarEventTimesChangedEvent, CalendarView }
   from 'angular-calendar';
 import { colors } from './colors';
 import { Store, select } from '@ngrx/store';
-import { UserService } from '../user.service';
+import { UserService } from '../../user.service';
 import { Goal } from '../../goals/Goal';
+import { EventsService } from '../events.service';
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html'
+  selector: 'app-cal-month',
+  templateUrl: './cal-month.component.html'
 })
 
-export class CalendarComponent implements OnInit {
+export class CalendarMonthComponent implements OnInit {
 
   goal: Goal;
   view: CalendarView = CalendarView.Month;
@@ -20,11 +21,21 @@ export class CalendarComponent implements OnInit {
   events: CalendarEvent[] = [];
   refresh: Subject<any> = new Subject();
 
-  constructor(private store: Store<any>, private userService: UserService) { }
+  constructor(
+    private store: Store<any>, 
+    private userService: UserService,
+    private eventsSErvice: EventsService) { }
 
   async ngOnInit() {
     
-    this.viewDate = this.goal.event_id
+    this.store.select('currentGoal').subscribe(
+      goal => {
+        this.eventsSErvice.getGoalEvent(goal.event_id).subscribe(
+          event => this.viewDate = event.start
+        )
+      }
+    )
+
     // this.store.select('events').subscribe(
     //   events => {
     //         for (let event of events) {
