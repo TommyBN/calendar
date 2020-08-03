@@ -47,23 +47,29 @@ export class AllTodosComponent implements OnInit{
         this.currentTodoIndex = this.currentTodoIndex == i ? -1 : i
     }
 
-    async submitNewTodo(todo){
-        let newTodo = await this.todoService.addTodo(todo);
-        setTimeout(()=> this.setTodos(), 1000)
-        this.viewAddForm = false;
+    submitNewTodo(todo: Todo){
+        this.todoService.addTodo(todo).subscribe(todo => {
+            window.alert('todo saved: '+todo);
+            this.setTodos();
+            this.viewAddForm = false;
+        })
         
     }
 
-    async editTodo(todoId, newTitle){
-        this.todoService.updateTodo(todoId, newTitle);
-        this.currentTodoIndex = -1;
-        this.setTodos();
+    editTodo(todoId, newTitle){
+        this.todoService.updateTodo(todoId, newTitle).subscribe(todo => {
+            window.alert('updated todo + event: '+todo)
+            this.currentTodoIndex = -1;
+            this.setTodos();
+        })
     }
 
-    async deleteTodo(todoId){
-        await this.todoService.deleteTodo(todoId);
-        this.setTodos();
-        this.currentTodoToDelete = -1;
+    deleteTodo(todoId){
+        this.todoService.deleteTodo(todoId).subscribe(id => {
+            window.alert('todo number '+id+' deleted');
+            this.setTodos();
+            this.currentTodoToDelete = -1;
+        })
     }
 
 

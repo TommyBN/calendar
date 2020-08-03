@@ -13,15 +13,18 @@ import { EventsService } from '../../calendar/events.service';
 export class EditTodoComponent implements OnInit {
     
     @Output() emitTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-    private newTodo: Todo;
-    private newTodoTitle: string;
-    private newTodoEndDate: Date;
-    private newTodoEvent: CalendarEvent = {
-        title: '',
-        start: null,
-        draggable: true
-    };
+    // private newTodo: Todo;
+    // private newTodoTitle: string;
+    // private newTodoEndDate: Date;
+    // private newTodoEvent: CalendarEvent = {
+    //     title: '',
+    //     start: null,
+    //     draggable: true
+    // };
     
+    private event:CalendarEvent;
+    private newTodo: Todo;
+
     constructor(
         private userService: UserService,
         private eventsService: EventsService) { }
@@ -29,18 +32,18 @@ export class EditTodoComponent implements OnInit {
     ngOnInit() { }
 
     async onSubmit() {
-        this.newTodo = {
-            user_id: this.userService.userId,
-            title: this.newTodoTitle,
-            event_id: ''
-        }
-        this.newTodoEvent.start = await moment(this.newTodoEndDate).toDate();
-        this.eventsService.saveEvent(this.newTodoEvent).subscribe(
-            eventID => {
-                this.newTodo.event_id = eventID;  
-                this.emitTodo.emit(this.newTodo);
-            }
-        )
+        //create event
+        this.event.title = this.newTodo.title;
+        this.event.color = "yellow";
+        this.event.start = await moment(this.event.start).toDate();
+        this.event.draggable = true;
+        let body = { ...this.event, user_id: this.userService.userId };
+
+        //save event, get ID and save todo
+        this.eventsService.saveEvent(body).subscribe(eventID => {
+            this.newTodo.event_id = eventID;    
+            this.emitTodo.emit(this.newTodo)
+        })
     }
 
 }

@@ -26,7 +26,6 @@ export class EditGoalComponent implements OnInit {
 
     async onSubmit() {
         //create event
-        debugger
         this.event.title = this.newGoal.title;
         this.event.color = "yellow";
         this.event.start = await moment(this.event.start).toDate();

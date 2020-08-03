@@ -3,6 +3,7 @@ import { Goal } from '../Goal';
 import { TodoService, Todo } from '../../todo/todo.service';
 import { GoalsService } from '../goals.service';
 import { Store } from '@ngrx/store';
+import { EventsService } from '../../calendar/events.service';
 
 @Component({
     selector: 'app-goal',
@@ -22,15 +23,13 @@ export class GoalDetailsComponent implements OnInit{
     constructor(
         private todoService: TodoService,
         private goalService: GoalsService,
-        private store: Store<any>    
+        private store: Store<any>,
+        private eventsService: EventsService    
     ){}
 
     ngOnInit(){
-        console.log('goal: ',this.goal);
-        this.store.dispatch({
-            type: 'current-goal',
-            action: this.goal
-        })
+        this.store.dispatch({ type: 'current-goal', action: this.goal });
+        this.done = this.goal.done;
     }
     
     open(i){
@@ -47,14 +46,17 @@ export class GoalDetailsComponent implements OnInit{
     }
 
     saveTodo(todo:Todo){
-        this.goalService.addTodoToGoal(todo, this.goal._id)
-        setTimeout(()=>this.ngOnInit(),1000);
+        this.goalService.addTodoToGoal(todo, this.goal._id).subscribe(message => {
+            window.alert(message);
+            this.ngOnInit();
+        })
     }
 
     saveSubGoal(subGoal:Goal){
-        this.goalService.addSubGoal(subGoal, this.goal._id);        
-        setTimeout(()=>this.ngOnInit(),3000);
-        this.showAddTodo = false;
+        this.goalService.addSubGoal(subGoal, this.goal._id).subscribe(message => {
+            window.alert(message);
+            this.showAddTodo = false;
+        })        
     }
 
 
@@ -63,6 +65,6 @@ export class GoalDetailsComponent implements OnInit{
     }
 
     deleteGoal() {
-     this.goalService.deleteGoal(this.goal._id).subscribe(message => console.log(message))   
+     this.goalService.deleteGoal(this.goal._id).subscribe(message => window.alert(message))   
     }
 }

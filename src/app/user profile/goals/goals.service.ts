@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Goal } from './Goal';
 import { Store } from '@ngrx/store';
 import { UserService } from '../user.service';
-import { EventsService } from '../calendar/events.service';
 import { Todo } from '../todo/todo.service';
 
 @Injectable() export class GoalsService{
@@ -17,64 +16,33 @@ import { Todo } from '../todo/todo.service';
         private http:HttpClient,
         private store: Store<any>,
         private userService: UserService,
-        private eventsService: EventsService) {}
+    ) {}
 
     getUserGoals(id): Observable<Goal[]>{
         return <Observable<Goal[]>>this.http.get(`${this.url}?id=${id}`);
     }
 
     setGoalsInStore(goals:Goal[]){
-        this.store.dispatch({
-            type: "set-goals",
-            payload: goals
-        })
+        this.store.dispatch({ type: "set-goals", payload: goals })
     }
 
-    async addGoal(goal:Goal){
-        let body = {
-            goal: goal,
-            userId: this.userService.userId
-        }
-
-        this.http.post(`${this.url}/new`, body, { responseType: 'text'})
-        .subscribe(message=> console.log(message))
+    addGoal(goal:Goal): Observable<Goal>{
+        let body = { goal: goal, userId: this.userService.userId }
+        return <Observable<Goal>>this.http.post(`${this.url}/new`, body);
     }
 
-    async addTodoToGoal(todo, goalId: string){
-        todo.event = {
-            user_id: this.userService.userId,
-            title: todo.title,
-            color: 'yellow',
-            start: todo.event.start,
-            draggable: true
-        }
-        console.log('todo: ',todo)
-        let body = {
-            type: 'todo',
-            todo: todo,
-            userId: this.userService.userId
-        }
-        // console.log('goal id: ',goalId)
-        await this.http.post(`${this.url}/${goalId}`, body,).subscribe(response=>{
-            console.log('response: ',response)
-        })
+    addTodoToGoal(todo:Todo, goalId: string): Observable<any>{
+        let body = { type: 'todo', todo: todo, userId: this.userService.userId }
+        return this.http.post(`${this.url}/${goalId}`, body)
     }
 
-    async addSubGoal(subGoal:Goal, goalId: string){
-        let body = {
-            type: 'goal',
-            goal: subGoal,
-            userId: this.userService.userId
-        }
-
-        await this.http.post(`${this.url}/${goalId}`, body,).subscribe(response=>{
-            console.log('response: ',response)
-        })
+    addSubGoal(subGoal:Goal, goalId: string){
+        let body = { type: 'goal', goal: subGoal, userId: this.userService.userId }
+        return this.http.post(`${this.url}/${goalId}`, body);
     }
  
     deleteGoal(goalID) {
-        console.log('goal id: ',goalID)
-        return this.http.delete(`${this.url}/${goalID}`);
+        return this.http.delete(`${this.url}/${goalID}`)
     }
 
     
